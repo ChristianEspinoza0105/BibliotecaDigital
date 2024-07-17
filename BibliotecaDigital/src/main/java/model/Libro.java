@@ -13,9 +13,6 @@ public class Libro {
         this.contenido = contenido;
     }
 
-    public Libro() {
-    }
-
     public int getId() {
         return id;
     }
@@ -47,6 +44,4 @@ public class Libro {
     public void setContenido(String contenido) {
         this.contenido = contenido;
     }
-
 }
-

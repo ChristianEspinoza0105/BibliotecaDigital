@@ -40,9 +40,8 @@ public class LibroDAO {
         }
     }
 
-    // Método sincronizado para agregar un libro a la base de datos
     public void agregarLibro(Libro libro) {
-        String sql = "INSERT INTO libros (titulo, autor, contenido) VALUES (?, ?, ?)";
+        final String sql = "INSERT INTO libros (titulo, autor, contenido) VALUES (?, ?, ?)";
 
         monitor.sincronizarAcceso(() -> {
             try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -55,6 +54,7 @@ public class LibroDAO {
             }
         });
     }
+
 
     // Método sincronizado para obtener todos los libros de la base de datos
     public List<Libro> obtenerTodosLosLibros() {
@@ -80,26 +80,27 @@ public class LibroDAO {
         return libros;
     }
 
-    // Método sincronizado para buscar un libro por título
     public Libro buscarLibroPorTitulo(String titulo) {
         String sql = "SELECT * FROM libros WHERE titulo = ?";
-        Libro libro = null;
+        final Libro[] libro = { null }; // Declaración final de un array para poder modificarlo dentro de la lambda
 
         monitor.sincronizarAcceso(() -> {
             try (PreparedStatement stmt = connection.prepareStatement(sql)) {
                 stmt.setString(1, titulo);
-                ResultSet rs = stmt.executeQuery();
-                if (rs.next()) {
-                    int id = rs.getInt("id");
-                    String autor = rs.getString("autor");
-                    String contenido = rs.getString("contenido");
-                    libro = new Libro(id, titulo, autor, contenido);
+                try (ResultSet rs = stmt.executeQuery()) {
+                    if (rs.next()) {
+                        int id = rs.getInt("id");
+                        String autor = rs.getString("autor");
+                        String contenido = rs.getString("contenido");
+                        libro[0] = new Libro(id, titulo, autor, contenido);
+                    }
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         });
 
-        return libro;
+        return libro[0];
     }
+
 }
