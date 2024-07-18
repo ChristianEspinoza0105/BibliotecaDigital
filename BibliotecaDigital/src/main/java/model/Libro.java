@@ -1,16 +1,19 @@
 package model;
 
 public class Libro {
+
     private int id;
     private String titulo;
     private String autor;
-    private String contenido;
+    private String PdfPath;
+    private String imagenPath;
 
-    public Libro(int id, String titulo, String autor, String contenido) {
+    public Libro(int id, String titulo, String autor, String PdfPath, String imagenPath) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
-        this.contenido = contenido;
+        this.PdfPath = PdfPath;
+        this.imagenPath = imagenPath;
     }
 
     public int getId() {
@@ -37,11 +40,21 @@ public class Libro {
         this.autor = autor;
     }
 
-    public String getContenido() {
-        return contenido;
+    public String getPdfPath() {
+        return PdfPath;
     }
 
-    public void setContenido(String contenido) {
-        this.contenido = contenido;
+    public void setPdfPath(String PdfPath) {
+        this.PdfPath = PdfPath;
     }
+
+    public String getImagenPath() {
+        return imagenPath;
+    }
+
+    public void setImagenPath(String imagenPath) {
+        this.imagenPath = imagenPath;
+    }
+
+    
 }
