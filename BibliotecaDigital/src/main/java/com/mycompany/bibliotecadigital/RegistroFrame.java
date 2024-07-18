@@ -2,9 +2,9 @@ package com.mycompany.bibliotecadigital;
 
 public class RegistroFrame extends javax.swing.JFrame {
 
-    private PrincipalFrame principalFrame;
+    private InicioFrame principalFrame;
     
-    public RegistroFrame(PrincipalFrame principalFrame) {
+    public RegistroFrame(InicioFrame principalFrame) {
         this.principalFrame = principalFrame;
         initComponents();
     }
@@ -185,7 +185,7 @@ public class RegistroFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jbRegistroActionPerformed
 
     private void jbRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegresarActionPerformed
-        PrincipalFrame PrincipalFrame = new PrincipalFrame();
+        InicioFrame PrincipalFrame = new InicioFrame();
         PrincipalFrame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbRegresarActionPerformed
@@ -193,7 +193,7 @@ public class RegistroFrame extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                PrincipalFrame frame = new PrincipalFrame();
+                InicioFrame frame = new InicioFrame();
                 frame.setVisible(true);           
             }
         });
