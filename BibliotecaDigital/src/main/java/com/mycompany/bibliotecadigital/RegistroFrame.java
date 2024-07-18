@@ -175,14 +175,12 @@ public class RegistroFrame extends javax.swing.JFrame {
         String usuario = jtfUsuario.getText();
         String contrasena = jtfContrasena.getText();
 
-        // Validar que los campos no estén vacíos
         if (usuario.isEmpty() || contrasena.isEmpty()) {
             jlEstado.setText("Usuario y Contraseña no pueden estar vacíos.");
         } else {
-            // Registrar el nuevo usuario
             principalFrame.agregarUsuario(usuario, contrasena);
             principalFrame.setVisible(true);
-            this.dispose();  // Cerrar el frame actual (RegistroFrame)
+            this.dispose();
         }
     }//GEN-LAST:event_jbRegistroActionPerformed
 
