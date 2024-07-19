@@ -46,8 +46,12 @@ public class InicioFrame extends javax.swing.JFrame {
         background4 = new javax.swing.JPanel();
         BibliotecaDigital2 = new javax.swing.JLabel();
         jbSalir = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        RegistrarsePanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setUndecorated(true);
 
         background.setBackground(new java.awt.Color(255, 255, 255));
         background.setPreferredSize(new java.awt.Dimension(1340, 870));
@@ -159,17 +163,17 @@ public class InicioFrame extends javax.swing.JFrame {
                 .addGap(49, 49, 49))
         );
 
-        background.add(background2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 660, 630));
+        background.add(background2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 660, 630));
 
         background3.setBackground(new java.awt.Color(27, 26, 85));
         background3.setPreferredSize(new java.awt.Dimension(510, 620));
         background3.setLayout(new javax.swing.BoxLayout(background3, javax.swing.BoxLayout.LINE_AXIS));
-        background.add(background3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, 660, 630));
+        background.add(background3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, 660, 630));
 
         background4.setBackground(new java.awt.Color(83, 92, 145));
         background4.setPreferredSize(new java.awt.Dimension(510, 620));
         background4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        background.add(background4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 660, 630));
+        background.add(background4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 660, 630));
 
         BibliotecaDigital2.setFont(new java.awt.Font("Roboto Medium", 0, 48)); // NOI18N
         BibliotecaDigital2.setForeground(new java.awt.Color(7, 15, 43));
@@ -178,8 +182,9 @@ public class InicioFrame extends javax.swing.JFrame {
         background.add(BibliotecaDigital2, new org.netbeans.lib.awtextra.AbsoluteConstraints(906, 20, 410, 60));
 
         jbSalir.setBackground(new java.awt.Color(255, 255, 255));
-        jbSalir.setForeground(new java.awt.Color(255, 255, 255));
-        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/salir_icon.png"))); // NOI18N
+        jbSalir.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
+        jbSalir.setForeground(new java.awt.Color(0, 0, 0));
+        jbSalir.setText("X");
         jbSalir.setBorder(null);
         jbSalir.setBorderPainted(false);
         jbSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -188,7 +193,27 @@ public class InicioFrame extends javax.swing.JFrame {
                 jbSalirActionPerformed(evt);
             }
         });
-        background.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+        background.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
+
+        jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("¡Estás a solo un paso de descubrir un mundo de libros a tu alcance! Crea tu cuenta y comienza a explorar nuestra biblioteca digital hoy mismo.");
+        background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 800, -1, 30));
+
+        RegistrarsePanel.setBackground(new java.awt.Color(7, 15, 43));
+
+        javax.swing.GroupLayout RegistrarsePanelLayout = new javax.swing.GroupLayout(RegistrarsePanel);
+        RegistrarsePanel.setLayout(RegistrarsePanelLayout);
+        RegistrarsePanelLayout.setHorizontalGroup(
+            RegistrarsePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1210, Short.MAX_VALUE)
+        );
+        RegistrarsePanelLayout.setVerticalGroup(
+            RegistrarsePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+
+        background.add(RegistrarsePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 840, 1210, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -312,11 +337,13 @@ public class InicioFrame extends javax.swing.JFrame {
     private javax.swing.JLabel BibliotecaDigital2;
     private javax.swing.JLabel ContraseñaLabel;
     private javax.swing.JLabel InicioSesion;
+    private javax.swing.JPanel RegistrarsePanel;
     private javax.swing.JLabel UsuarioLabel;
     private javax.swing.JPanel background;
     private javax.swing.JPanel background2;
     private javax.swing.JPanel background3;
     private javax.swing.JPanel background4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbIniciar;
     private javax.swing.JButton jbRegistrarse;

@@ -30,6 +30,8 @@ public class RegistroFrame extends javax.swing.JFrame {
         jbRegistro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setUndecorated(true);
 
         background.setBackground(new java.awt.Color(255, 255, 255));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -52,15 +54,16 @@ public class RegistroFrame extends javax.swing.JFrame {
         background.add(UsuarioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 340, -1, -1));
 
         jbRegresar.setBackground(new java.awt.Color(7, 15, 43));
-        jbRegresar.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
+        jbRegresar.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
         jbRegresar.setForeground(new java.awt.Color(255, 255, 255));
-        jbRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/volver_icon.png"))); // NOI18N
+        jbRegresar.setText("<");
+        jbRegresar.setBorder(null);
         jbRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbRegresarActionPerformed(evt);
             }
         });
-        background.add(jbRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 50, 40));
+        background.add(jbRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 50));
 
         ImagenLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/books_imagen.png"))); // NOI18N
         background.add(ImagenLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 870));
