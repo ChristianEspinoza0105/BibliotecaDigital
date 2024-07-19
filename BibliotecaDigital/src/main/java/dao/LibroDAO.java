@@ -8,12 +8,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
-import javafx.application.Platform;
 import model.Libro;
 import concurrency.Monitor;
-import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import javax.swing.JOptionPane;
 
 public class LibroDAO {
     private Connection connection;
@@ -31,7 +29,7 @@ public class LibroDAO {
             e.printStackTrace();
         }
     }
-    
+
     public void cerrarConexion() {
         try {
             if (connection != null && !connection.isClosed()) {
@@ -59,9 +57,6 @@ public class LibroDAO {
                     libro.setId(generatedKeys.getInt(1));
                 }
 
-                System.out.println("Libro agregado correctamente a la base de datos.");
-
-                // Actualizar la interfaz gráfica o notificar al usuario
                 SwingUtilities.invokeLater(() -> {
                     JOptionPane.showMessageDialog(null, "Libro agregado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 });
@@ -69,7 +64,6 @@ public class LibroDAO {
             } catch (SQLException e) {
                 e.printStackTrace();
 
-                // Manejar el error mostrando un mensaje de error al usuario
                 SwingUtilities.invokeLater(() -> {
                     JOptionPane.showMessageDialog(null, "Error al agregar el libro: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 });
@@ -77,34 +71,25 @@ public class LibroDAO {
         });
     }
 
-
-
-    public void actualizarLibro(Libro libro, Consumer<Boolean> callback) {
-        final String sql = "UPDATE libros SET titulo = ?, autor = ?, pdf_path = ?, imagen_path = ?, resumen = ? WHERE id = ?";
+    public boolean actualizarLibro(Libro libro) {
+        String sql = "UPDATE libros SET autor = ?, pdf_path = ?, imagen_path = ?, resumen = ? WHERE titulo = ?";
+        final boolean[] resultado = { false };
 
         monitor.sincronizarAcceso(() -> {
             try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-                stmt.setString(1, libro.getTitulo());
-                stmt.setString(2, libro.getAutor());
-                stmt.setString(3, libro.getPdfPath());
-                stmt.setString(4, libro.getImagenPath());
-                stmt.setString(5, libro.getResumen());
-                stmt.setInt(6, libro.getId());
+                stmt.setString(1, libro.getAutor());
+                stmt.setString(2, libro.getPdfPath());
+                stmt.setString(3, libro.getImagenPath());
+                stmt.setString(4, libro.getResumen());
+                stmt.setString(5, libro.getTitulo());
                 int rowsAffected = stmt.executeUpdate();
-
-                Platform.runLater(() -> {
-                    if (rowsAffected > 0) {
-                        callback.accept(true);
-                    } else {
-                        callback.accept(false);
-                    }
-                });
-
+                resultado[0] = rowsAffected > 0;
             } catch (SQLException e) {
                 e.printStackTrace();
-                Platform.runLater(() -> callback.accept(false));
             }
         });
+
+        return resultado[0];
     }
 
     public Libro eliminarLibroPorTitulo(String titulo) {
@@ -142,9 +127,6 @@ public class LibroDAO {
                     String resumen = rs.getString("resumen");
                     Libro libro = new Libro(id, titulo, autor, pdfPath, imagenPath, resumen);
                     libros.add(libro);
-
-                    System.out.println("ID: " + id + ", Título: " + titulo + ", Autor: " + autor +
-                                       ", PDF Path: " + pdfPath + ", Imagen Path: " + imagenPath);
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -177,5 +159,25 @@ public class LibroDAO {
         });
 
         return libro[0];
+    }
+    
+    public String obtenerRutaPDF(String titulo) {
+        String sql = "SELECT pdf_path FROM libros WHERE titulo = ?";
+        final String[] pdfPath = { null };
+
+        monitor.sincronizarAcceso(() -> {
+            try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+                stmt.setString(1, titulo);
+                try (ResultSet rs = stmt.executeQuery()) {
+                    if (rs.next()) {
+                        pdfPath[0] = rs.getString("pdf_path");
+                    }
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
+
+        return pdfPath[0];
     }
 }

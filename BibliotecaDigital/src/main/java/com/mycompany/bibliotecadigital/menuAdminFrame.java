@@ -98,6 +98,7 @@ public class menuAdminFrame extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jbEliminar = new javax.swing.JButton();
         jbHouse = new javax.swing.JButton();
+        jbEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -126,7 +127,7 @@ public class menuAdminFrame extends javax.swing.JFrame {
             }
         });
 
-        jbAnadir.setBackground(new java.awt.Color(255, 255, 255));
+        jbAnadir.setBackground(new java.awt.Color(51, 153, 0));
         jbAnadir.setForeground(new java.awt.Color(7, 15, 43));
         jbAnadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/suma_icon.png"))); // NOI18N
         jbAnadir.addActionListener(new java.awt.event.ActionListener() {
@@ -142,14 +143,14 @@ public class menuAdminFrame extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 849, Short.MAX_VALUE)
+            .addGap(0, 865, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 824, Short.MAX_VALUE)
         );
 
-        jbEliminar.setBackground(new java.awt.Color(255, 255, 255));
+        jbEliminar.setBackground(new java.awt.Color(255, 0, 0));
         jbEliminar.setForeground(new java.awt.Color(7, 15, 43));
         jbEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basura_icon.png"))); // NOI18N
         jbEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -167,6 +168,15 @@ public class menuAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        jbEditar.setBackground(new java.awt.Color(255, 153, 0));
+        jbEditar.setForeground(new java.awt.Color(7, 15, 43));
+        jbEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lapiz_icon.png"))); // NOI18N
+        jbEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEditarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -178,7 +188,9 @@ public class menuAdminFrame extends javax.swing.JFrame {
                 .addComponent(jbBuscar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbHouse)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 316, Short.MAX_VALUE)
+                .addComponent(jbEditar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbEliminar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbAnadir)
@@ -187,7 +199,7 @@ public class menuAdminFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BibliotecaDigital)
                 .addGap(20, 20, 20))
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 849, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 865, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,7 +213,8 @@ public class menuAdminFrame extends javax.swing.JFrame {
                             .addComponent(jtfBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jbAnadir))
                         .addComponent(jbEliminar)
-                        .addComponent(jbHouse))
+                        .addComponent(jbHouse)
+                        .addComponent(jbEditar))
                     .addComponent(BibliotecaDigital, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 824, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -257,6 +270,12 @@ public class menuAdminFrame extends javax.swing.JFrame {
         adminFrame.setVisible(true);        
     }//GEN-LAST:event_jbHouseActionPerformed
 
+    private void jbEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditarActionPerformed
+        this.dispose();
+        ModificarLibroFrame otraVentana = new ModificarLibroFrame();
+        otraVentana.setVisible(true);
+    }//GEN-LAST:event_jbEditarActionPerformed
+
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -295,6 +314,7 @@ public class menuAdminFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JButton jbAnadir;
     private javax.swing.JButton jbBuscar;
+    private javax.swing.JButton jbEditar;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbHouse;
     private javax.swing.JTextField jtfBuscar;
