@@ -9,6 +9,7 @@ import java.io.IOException;
 import javax.swing.JFrame;
 import model.Libro;
 import dao.LibroDAO;
+import java.awt.Color;
 
 public class LibroPanel extends javax.swing.JPanel {
 
@@ -118,6 +119,14 @@ private void abrirPdf(String pdfPath) {
         jbLeer.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
         jbLeer.setForeground(new java.awt.Color(255, 255, 255));
         jbLeer.setText("Leer");
+        jbLeer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jbLeerMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jbLeerMouseExited(evt);
+            }
+        });
         jbLeer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbLeerActionPerformed(evt);
@@ -308,6 +317,14 @@ private void abrirPdf(String pdfPath) {
             JOptionPane.showMessageDialog(this, "El libro no tiene un archivo PDF asociado.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jbLeerActionPerformed
+
+    private void jbLeerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbLeerMouseEntered
+        jbLeer.setBackground(new Color(27, 26, 85));
+    }//GEN-LAST:event_jbLeerMouseEntered
+
+    private void jbLeerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbLeerMouseExited
+        jbLeer.setBackground(new Color(146, 144, 195));
+    }//GEN-LAST:event_jbLeerMouseExited
 
     
 

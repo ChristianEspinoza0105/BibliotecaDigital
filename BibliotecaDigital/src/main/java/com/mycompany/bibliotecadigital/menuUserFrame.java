@@ -2,6 +2,7 @@ package com.mycompany.bibliotecadigital;
 
 import dao.LibroDAO;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -13,6 +14,7 @@ public class menuUserFrame extends javax.swing.JFrame {
     
     private JPanel panelLibros;
     private LibroDAO libroDAO;
+    int xMouse, yMouse;
 
     public menuUserFrame() {
         initComponents();
@@ -93,9 +95,9 @@ public class menuUserFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jbBuscar = new javax.swing.JButton();
         jtfBuscar = new javax.swing.JTextField();
-        jbHouse = new javax.swing.JButton();
         BibliotecaDigital2 = new javax.swing.JLabel();
-        jbSalir = new javax.swing.JButton();
+        PanelCerrar = new javax.swing.JPanel();
+        LabelCerrar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -107,53 +109,115 @@ public class menuUserFrame extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(7, 15, 43));
+        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel1MouseDragged(evt);
+            }
+        });
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel1MousePressed(evt);
+            }
+        });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jbBuscar.setBackground(new java.awt.Color(255, 255, 255));
         jbBuscar.setForeground(new java.awt.Color(7, 15, 43));
         jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buscar_icon.png"))); // NOI18N
+        jbBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jbBuscarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jbBuscarMouseExited(evt);
+            }
+        });
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbBuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 50, 40));
+        jPanel1.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 40, 40));
 
         jtfBuscar.setBackground(new java.awt.Color(255, 255, 255));
         jtfBuscar.setFont(new java.awt.Font("Roboto Light", 0, 18)); // NOI18N
-        jtfBuscar.setForeground(new java.awt.Color(7, 15, 43));
+        jtfBuscar.setForeground(new java.awt.Color(204, 204, 204));
+        jtfBuscar.setText("Escribir titulo...");
+        jtfBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jtfBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jtfBuscarMousePressed(evt);
+            }
+        });
         jtfBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtfBuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(jtfBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 210, 40));
-
-        jbHouse.setBackground(new java.awt.Color(255, 255, 255));
-        jbHouse.setForeground(new java.awt.Color(7, 15, 43));
-        jbHouse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/house_icon.png"))); // NOI18N
-        jbHouse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbHouseActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jbHouse, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 50, 40));
+        jPanel1.add(jtfBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 210, 40));
 
         BibliotecaDigital2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         BibliotecaDigital2.setForeground(new java.awt.Color(255, 255, 255));
         BibliotecaDigital2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon2_icon.png"))); // NOI18N
         BibliotecaDigital2.setText("Biblioteca Digital");
-        jPanel1.add(BibliotecaDigital2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 0, 230, 60));
-
-        jbSalir.setBackground(new java.awt.Color(255, 255, 255));
-        jbSalir.setForeground(new java.awt.Color(7, 15, 43));
-        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/salir_icon.png"))); // NOI18N
-        jbSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbSalirActionPerformed(evt);
+        BibliotecaDigital2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BibliotecaDigital2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BibliotecaDigital2MouseClicked(evt);
             }
         });
-        jPanel1.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 50, 40));
+        jPanel1.add(BibliotecaDigital2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 0, 230, 60));
+
+        PanelCerrar.setBackground(new java.awt.Color(255, 255, 255));
+        PanelCerrar.setPreferredSize(new java.awt.Dimension(54, 33));
+        PanelCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PanelCerrarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                PanelCerrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                PanelCerrarMouseExited(evt);
+            }
+        });
+
+        LabelCerrar.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
+        LabelCerrar.setForeground(new java.awt.Color(0, 0, 0));
+        LabelCerrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LabelCerrar.setText("X");
+        LabelCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LabelCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LabelCerrarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LabelCerrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LabelCerrarMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelCerrarLayout = new javax.swing.GroupLayout(PanelCerrar);
+        PanelCerrar.setLayout(PanelCerrarLayout);
+        PanelCerrarLayout.setHorizontalGroup(
+            PanelCerrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelCerrarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LabelCerrar, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        PanelCerrarLayout.setVerticalGroup(
+            PanelCerrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelCerrarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LabelCerrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel1.add(PanelCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 30));
 
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1320, -1));
 
@@ -179,21 +243,70 @@ public class menuUserFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese un título para buscar.",
                     "Campo vacío", JOptionPane.WARNING_MESSAGE);
         }
+        jtfBuscar.setText("");
     }//GEN-LAST:event_jbBuscarActionPerformed
   
     private void jtfBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfBuscarActionPerformed
         jbBuscarActionPerformed(evt);
     }//GEN-LAST:event_jtfBuscarActionPerformed
 
-    private void jbHouseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbHouseActionPerformed
+    private void LabelCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelCerrarMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_LabelCerrarMouseClicked
+
+    private void LabelCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelCerrarMouseEntered
+        PanelCerrar.setBackground(Color.red);
+        LabelCerrar.setForeground(Color.white);
+    }//GEN-LAST:event_LabelCerrarMouseEntered
+
+    private void LabelCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelCerrarMouseExited
+        PanelCerrar.setBackground(Color.white);
+        LabelCerrar.setForeground(Color.black);
+    }//GEN-LAST:event_LabelCerrarMouseExited
+
+    private void PanelCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelCerrarMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_PanelCerrarMouseClicked
+
+    private void PanelCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelCerrarMouseEntered
+        PanelCerrar.setBackground(Color.red);
+        LabelCerrar.setForeground(Color.white);
+    }//GEN-LAST:event_PanelCerrarMouseEntered
+
+    private void PanelCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelCerrarMouseExited
+        PanelCerrar.setBackground(Color.white);
+        LabelCerrar.setForeground(Color.black);
+    }//GEN-LAST:event_PanelCerrarMouseExited
+
+    private void jbBuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbBuscarMouseEntered
+        jbBuscar.setBackground(new Color (146, 144, 195));
+    }//GEN-LAST:event_jbBuscarMouseEntered
+
+    private void jbBuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbBuscarMouseExited
+        jbBuscar.setBackground(Color.white);
+    }//GEN-LAST:event_jbBuscarMouseExited
+
+    private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_jPanel1MouseDragged
+
+    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_jPanel1MousePressed
+
+    private void BibliotecaDigital2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BibliotecaDigital2MouseClicked
         this.dispose();
         menuUserFrame adminFrame = new menuUserFrame();
-        adminFrame.setVisible(true);        
-    }//GEN-LAST:event_jbHouseActionPerformed
+        adminFrame.setVisible(true);  
+    }//GEN-LAST:event_BibliotecaDigital2MouseClicked
 
-    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_jbSalirActionPerformed
+    private void jtfBuscarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtfBuscarMousePressed
+            jtfBuscar.setText("");
+            jtfBuscar.setForeground(Color.black);
+    }//GEN-LAST:event_jtfBuscarMousePressed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -229,11 +342,11 @@ public class menuUserFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BibliotecaDigital2;
+    private javax.swing.JLabel LabelCerrar;
+    private javax.swing.JPanel PanelCerrar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JButton jbBuscar;
-    private javax.swing.JButton jbHouse;
-    private javax.swing.JButton jbSalir;
     private javax.swing.JTextField jtfBuscar;
     // End of variables declaration//GEN-END:variables
 }

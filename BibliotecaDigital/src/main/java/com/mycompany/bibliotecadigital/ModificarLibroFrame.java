@@ -3,10 +3,12 @@ package com.mycompany.bibliotecadigital;
 
 import model.Libro;
 import dao.LibroDAO;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 public class ModificarLibroFrame extends javax.swing.JFrame {
     private LibroDAO libroDAO;
+    int xMouse, yMouse;
 
     public ModificarLibroFrame() {
         initComponents();
@@ -51,7 +53,11 @@ public class ModificarLibroFrame extends javax.swing.JFrame {
         Regresar = new javax.swing.JButton();
         background3 = new javax.swing.JPanel();
         background4 = new javax.swing.JPanel();
-        jbSalir = new javax.swing.JButton();
+        OpcionesPanel = new javax.swing.JPanel();
+        PanelRegresar = new javax.swing.JPanel();
+        LabelRegresar = new javax.swing.JLabel();
+        PanelCerrar = new javax.swing.JPanel();
+        LabelCerrar = new javax.swing.JLabel();
 
         Contrasena2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Contrasena2.setForeground(new java.awt.Color(7, 15, 43));
@@ -71,6 +77,12 @@ public class ModificarLibroFrame extends javax.swing.JFrame {
         BibliotecaDigital2.setForeground(new java.awt.Color(255, 255, 255));
         BibliotecaDigital2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon2_icon.png"))); // NOI18N
         BibliotecaDigital2.setText("Biblioteca Digital");
+        BibliotecaDigital2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BibliotecaDigital2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BibliotecaDigital2MouseClicked(evt);
+            }
+        });
 
         InicioSesion1.setFont(new java.awt.Font("Roboto Black", 0, 48)); // NOI18N
         InicioSesion1.setForeground(new java.awt.Color(146, 144, 195));
@@ -126,6 +138,14 @@ public class ModificarLibroFrame extends javax.swing.JFrame {
         jbBuscar.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
         jbBuscar.setForeground(new java.awt.Color(255, 255, 255));
         jbBuscar.setText("Buscar");
+        jbBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jbBuscarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jbBuscarMouseExited(evt);
+            }
+        });
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbBuscarActionPerformed(evt);
@@ -136,6 +156,14 @@ public class ModificarLibroFrame extends javax.swing.JFrame {
         jbModificar.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
         jbModificar.setForeground(new java.awt.Color(255, 255, 255));
         jbModificar.setText("Modificar");
+        jbModificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jbModificarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jbModificarMouseExited(evt);
+            }
+        });
         jbModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbModificarActionPerformed(evt);
@@ -146,6 +174,14 @@ public class ModificarLibroFrame extends javax.swing.JFrame {
         Regresar.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
         Regresar.setForeground(new java.awt.Color(255, 255, 255));
         Regresar.setText("Regresar");
+        Regresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RegresarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RegresarMouseExited(evt);
+            }
+        });
         Regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegresarActionPerformed(evt);
@@ -234,19 +270,135 @@ public class ModificarLibroFrame extends javax.swing.JFrame {
         background4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(background4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 860, 790));
 
-        jbSalir.setBackground(new java.awt.Color(255, 255, 255));
-        jbSalir.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
-        jbSalir.setForeground(new java.awt.Color(0, 0, 0));
-        jbSalir.setText("<");
-        jbSalir.setBorder(null);
-        jbSalir.setBorderPainted(false);
-        jbSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbSalirActionPerformed(evt);
+        OpcionesPanel.setBackground(new java.awt.Color(255, 255, 255));
+        OpcionesPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                OpcionesPanelMouseDragged(evt);
             }
         });
-        jPanel1.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 40));
+        OpcionesPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                OpcionesPanelMousePressed(evt);
+            }
+        });
+
+        PanelRegresar.setBackground(new java.awt.Color(255, 255, 255));
+        PanelRegresar.setAlignmentY(0.4F);
+        PanelRegresar.setPreferredSize(new java.awt.Dimension(54, 33));
+        PanelRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PanelRegresarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                PanelRegresarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                PanelRegresarMouseExited(evt);
+            }
+        });
+
+        LabelRegresar.setFont(new java.awt.Font("Roboto Black", 0, 28)); // NOI18N
+        LabelRegresar.setForeground(new java.awt.Color(0, 0, 0));
+        LabelRegresar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LabelRegresar.setText("<");
+        LabelRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LabelRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LabelRegresarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LabelRegresarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LabelRegresarMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelRegresarLayout = new javax.swing.GroupLayout(PanelRegresar);
+        PanelRegresar.setLayout(PanelRegresarLayout);
+        PanelRegresarLayout.setHorizontalGroup(
+            PanelRegresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelRegresarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LabelRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        PanelRegresarLayout.setVerticalGroup(
+            PanelRegresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelRegresarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(LabelRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
+        );
+
+        PanelCerrar.setBackground(new java.awt.Color(255, 255, 255));
+        PanelCerrar.setPreferredSize(new java.awt.Dimension(54, 33));
+        PanelCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PanelCerrarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                PanelCerrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                PanelCerrarMouseExited(evt);
+            }
+        });
+
+        LabelCerrar.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
+        LabelCerrar.setForeground(new java.awt.Color(0, 0, 0));
+        LabelCerrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LabelCerrar.setText("X");
+        LabelCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LabelCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LabelCerrarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LabelCerrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LabelCerrarMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelCerrarLayout = new javax.swing.GroupLayout(PanelCerrar);
+        PanelCerrar.setLayout(PanelCerrarLayout);
+        PanelCerrarLayout.setHorizontalGroup(
+            PanelCerrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelCerrarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LabelCerrar, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        PanelCerrarLayout.setVerticalGroup(
+            PanelCerrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelCerrarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LabelCerrar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout OpcionesPanelLayout = new javax.swing.GroupLayout(OpcionesPanel);
+        OpcionesPanel.setLayout(OpcionesPanelLayout);
+        OpcionesPanelLayout.setHorizontalGroup(
+            OpcionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(OpcionesPanelLayout.createSequentialGroup()
+                .addComponent(PanelCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PanelRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1226, Short.MAX_VALUE))
+        );
+        OpcionesPanelLayout.setVerticalGroup(
+            OpcionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(OpcionesPanelLayout.createSequentialGroup()
+                .addGroup(OpcionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                    .addComponent(PanelCerrar, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        jPanel1.add(OpcionesPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1340, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -309,11 +461,106 @@ public class ModificarLibroFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
 
-    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+    private void LabelRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelRegresarMouseClicked
         menuAdminFrame menuAdminFrame = new menuAdminFrame();
         menuAdminFrame.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jbSalirActionPerformed
+    }//GEN-LAST:event_LabelRegresarMouseClicked
+
+    private void LabelRegresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelRegresarMouseEntered
+        PanelRegresar.setBackground(new Color(57, 153, 24));
+        LabelRegresar.setForeground(Color.white);
+    }//GEN-LAST:event_LabelRegresarMouseEntered
+
+    private void LabelRegresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelRegresarMouseExited
+        PanelRegresar.setBackground(Color.white);
+        LabelRegresar.setForeground(Color.black);
+    }//GEN-LAST:event_LabelRegresarMouseExited
+
+    private void PanelRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelRegresarMouseClicked
+        menuAdminFrame menuAdminFrame = new menuAdminFrame();
+        menuAdminFrame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_PanelRegresarMouseClicked
+
+    private void PanelRegresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelRegresarMouseEntered
+        PanelRegresar.setBackground(new Color(57, 153, 24));
+        LabelRegresar.setForeground(Color.white);
+    }//GEN-LAST:event_PanelRegresarMouseEntered
+
+    private void PanelRegresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelRegresarMouseExited
+        PanelRegresar.setBackground(Color.white);
+        LabelRegresar.setForeground(Color.black);
+    }//GEN-LAST:event_PanelRegresarMouseExited
+
+    private void LabelCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelCerrarMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_LabelCerrarMouseClicked
+
+    private void LabelCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelCerrarMouseEntered
+        PanelCerrar.setBackground(Color.red);
+        LabelCerrar.setForeground(Color.white);
+    }//GEN-LAST:event_LabelCerrarMouseEntered
+
+    private void LabelCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelCerrarMouseExited
+        PanelCerrar.setBackground(Color.white);
+        LabelCerrar.setForeground(Color.black);
+    }//GEN-LAST:event_LabelCerrarMouseExited
+
+    private void PanelCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelCerrarMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_PanelCerrarMouseClicked
+
+    private void PanelCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelCerrarMouseEntered
+        PanelCerrar.setBackground(Color.red);
+        LabelCerrar.setForeground(Color.white);
+    }//GEN-LAST:event_PanelCerrarMouseEntered
+
+    private void PanelCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelCerrarMouseExited
+        PanelCerrar.setBackground(Color.white);
+        LabelCerrar.setForeground(Color.black);
+    }//GEN-LAST:event_PanelCerrarMouseExited
+
+    private void OpcionesPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OpcionesPanelMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_OpcionesPanelMouseDragged
+
+    private void OpcionesPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OpcionesPanelMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_OpcionesPanelMousePressed
+
+    private void jbBuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbBuscarMouseEntered
+        jbBuscar.setBackground(new Color(27, 26, 85));
+    }//GEN-LAST:event_jbBuscarMouseEntered
+
+    private void jbBuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbBuscarMouseExited
+        jbBuscar.setBackground(new Color(146, 144, 195));
+    }//GEN-LAST:event_jbBuscarMouseExited
+
+    private void RegresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegresarMouseEntered
+        Regresar.setBackground(new Color(27, 26, 85));
+    }//GEN-LAST:event_RegresarMouseEntered
+
+    private void RegresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegresarMouseExited
+        Regresar.setBackground(new Color(146, 144, 195));
+    }//GEN-LAST:event_RegresarMouseExited
+
+    private void jbModificarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbModificarMouseEntered
+        jbModificar.setBackground(new Color(27, 26, 85));
+    }//GEN-LAST:event_jbModificarMouseEntered
+
+    private void jbModificarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbModificarMouseExited
+        jbModificar.setBackground(new Color(146, 144, 195));
+    }//GEN-LAST:event_jbModificarMouseExited
+
+    private void BibliotecaDigital2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BibliotecaDigital2MouseClicked
+        this.dispose();
+        menuAdminFrame adminFrame = new menuAdminFrame();
+        adminFrame.setVisible(true);  
+    }//GEN-LAST:event_BibliotecaDigital2MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -352,6 +599,11 @@ public class ModificarLibroFrame extends javax.swing.JFrame {
     private javax.swing.JLabel BibliotecaDigital2;
     private javax.swing.JLabel Contrasena2;
     private javax.swing.JLabel InicioSesion1;
+    private javax.swing.JLabel LabelCerrar;
+    private javax.swing.JLabel LabelRegresar;
+    private javax.swing.JPanel OpcionesPanel;
+    private javax.swing.JPanel PanelCerrar;
+    private javax.swing.JPanel PanelRegresar;
     private javax.swing.JButton Regresar;
     private javax.swing.JLabel ResumenLabel;
     private javax.swing.JLabel ResumenLabel1;
@@ -368,7 +620,6 @@ public class ModificarLibroFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbModificar;
-    private javax.swing.JButton jbSalir;
     private javax.swing.JTextArea jtaAutor;
     private javax.swing.JTextArea jtaImg;
     private javax.swing.JTextArea jtaPDF;
