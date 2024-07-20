@@ -1,44 +1,43 @@
 package com.mycompany.bibliotecadigital;
 
-import dao.LibroDAO;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.Image;
+import java.io.File;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import java.io.IOException;
+import javax.swing.JFrame;
 import model.Libro;
+import dao.LibroDAO;
 
 public class LibroPanel extends javax.swing.JPanel {
 
     private final Libro libro;
+    private PDFPanelFrame pdfFrame;
+    private final LibroDAO libroDAO;
 
     public LibroPanel(Libro libro) {
         initComponents();
         this.libro = libro;
+        this.libroDAO = new LibroDAO();
         mostrarDetallesLibro();
         jlResumen.setEditable(false);
-        // Crear un JLabel para mostrar el PDF (opcional)
-        JLabel pdfLabel = new JLabel();
-        pdfLabel.setPreferredSize(new Dimension(800, 600));
-        jPanel1.add(pdfLabel, BorderLayout.CENTER);
-
-        // Añadir un ActionListener al botón de leer
-        jbLeer.addActionListener(evt -> abrirPdf(libro.getPdfPath()));
     }
     
     private void mostrarDetallesLibro() {
-        System.out.println("Mostrando detalles del libro: " + libro.getTitulo() + " - " + libro.getAutor());
+        System.out.println("Cargando detalles del libro...");
+        System.out.println("Título: " + libro.getTitulo());
+        System.out.println("Autor: " + libro.getAutor());
 
         ImageIcon icon = null;
         String imagenPath = libro.getImagenPath();
 
         if (imagenPath != null && !imagenPath.isEmpty()) {
-            System.out.println("Ruta de imagen: " + imagenPath);
+            System.out.println("Imagen encontrada en la ruta: " + imagenPath);
             icon = new ImageIcon(imagenPath);
         } else {
-            System.out.println("No se encontró ruta de imagen válida, utilizando imagen por defecto.");
-            icon = new ImageIcon(getClass().getResource("src/main/resources/libro1.jpg"));
+            System.out.println("Ruta de imagen no válida, utilizando imagen por defecto.");
+            icon = new ImageIcon(getClass().getResource("/resources/libro1.jpg"));
         }
 
         Image img = icon.getImage().getScaledInstance(299, 466, Image.SCALE_SMOOTH);
@@ -46,30 +45,47 @@ public class LibroPanel extends javax.swing.JPanel {
         jlTitulo.setText(libro.getTitulo());
         jlAutor.setText(libro.getAutor());
         jlResumen.setText(libro.getResumen());
+        System.out.println("Detalles del libro mostrados correctamente.");
     }
     
-    private void abrirPdf(String pdfPath) {
-        if (pdfPath != null && !pdfPath.isEmpty()) {
-            java.io.File pdfFile = new java.io.File(pdfPath);
-            if (pdfFile.exists()) {
-                try {
-                    java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
-                    if (desktop.isSupported(java.awt.Desktop.Action.OPEN)) {
-                        desktop.open(pdfFile);
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Acción OPEN no soportada en este sistema.", "Error", JOptionPane.ERROR_MESSAGE);
+
+private void abrirPdf(String pdfPath) {
+    System.out.println("Buscando archivo PDF con la ruta: " + pdfPath);
+
+    File pdfFile = new File(pdfPath);
+    if (pdfFile.exists() && !pdfFile.isDirectory()) {
+        System.out.println("Archivo PDF encontrado en la ruta: " + pdfPath);
+        try {
+            SwingUtilities.invokeLater(() -> {
+                PDFPanelFrame pdfFrame = new PDFPanelFrame("Visor de PDF", pdfPath);
+                pdfFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+                pdfFrame.pack();
+                pdfFrame.setVisible(true);
+
+                pdfFrame.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                        try {
+                            pdfFrame.getDocument().close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
-                } catch (java.io.IOException e) {
-                    JOptionPane.showMessageDialog(this, "Error al intentar abrir el archivo PDF: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-                }
-            } else {
-                JOptionPane.showMessageDialog(this, "El archivo PDF no existe en la ruta especificada.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "La ruta del archivo PDF no es válida.", "Error", JOptionPane.ERROR_MESSAGE);
+                });
+            });
+        } catch (Exception e) {
+            System.out.println("Error al intentar abrir el archivo PDF: " + pdfPath);
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error al intentar abrir el archivo PDF.", "Error", JOptionPane.ERROR_MESSAGE);
         }
+    } else {
+        System.out.println("No se encontró el archivo PDF en la ruta: " + pdfPath);
+        JOptionPane.showMessageDialog(this, "No se encontró el archivo PDF en la ruta especificada.", "Error", JOptionPane.ERROR_MESSAGE);
     }
-    
+}
+
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -282,43 +298,14 @@ public class LibroPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbLeerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLeerActionPerformed
-        // Obtener el título del libro desde la interfaz gráfica (por ejemplo, desde un campo de texto)
-        String titulo = jlTitulo.getText();
-
-        // Crear una instancia de LibroDAO
-        LibroDAO libroDAO = new LibroDAO();
-
-        // Obtener la ruta del archivo PDF desde la base de datos
-        String pdfFilePath = libroDAO.obtenerRutaPDF(titulo);
-
-        // Cerrar la conexión a la base de datos
-        libroDAO.cerrarConexion();
-
-        // Verificar si se obtuvo una ruta válida
-        if (pdfFilePath != null) {
-            java.io.File pdfFile = new java.io.File(pdfFilePath);
-
-            // Verificar si el archivo existe
-            if (pdfFile.exists()) {
-                try {
-                    // Obtener el escritorio del sistema
-                    java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
-
-                    // Verificar si el escritorio soporta la acción de abrir archivos
-                    if (desktop.isSupported(java.awt.Desktop.Action.OPEN)) {
-                        // Abrir el archivo PDF con la aplicación predeterminada
-                        desktop.open(pdfFile);
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Acción OPEN no soportada en este sistema.", "Error", JOptionPane.ERROR_MESSAGE);
-                    }
-                } catch (java.io.IOException e) {
-                    JOptionPane.showMessageDialog(null, "Error al intentar abrir el archivo PDF: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "El archivo PDF no existe en la ruta especificada.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
+        System.out.println("Acción del botón 'Leer' activada.");
+        String pdfPath = libro.getPdfPath();
+        if (pdfPath != null && !pdfPath.isEmpty()) {
+            System.out.println("Ruta del archivo PDF: " + pdfPath);
+            abrirPdf(pdfPath);
         } else {
-            JOptionPane.showMessageDialog(null, "No se encontró el libro con el título especificado.", "Error", JOptionPane.ERROR_MESSAGE);
+            System.out.println("Error: El libro no tiene un archivo PDF asociado.");
+            JOptionPane.showMessageDialog(this, "El libro no tiene un archivo PDF asociado.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jbLeerActionPerformed
 

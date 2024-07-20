@@ -235,9 +235,9 @@ public class ModificarLibroFrame extends javax.swing.JFrame {
         jPanel1.add(background4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 860, 790));
 
         jbSalir.setBackground(new java.awt.Color(255, 255, 255));
-        jbSalir.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
+        jbSalir.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
         jbSalir.setForeground(new java.awt.Color(0, 0, 0));
-        jbSalir.setText("X");
+        jbSalir.setText("<");
         jbSalir.setBorder(null);
         jbSalir.setBorderPainted(false);
         jbSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -246,7 +246,7 @@ public class ModificarLibroFrame extends javax.swing.JFrame {
                 jbSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
+        jPanel1.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -310,7 +310,9 @@ public class ModificarLibroFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
-        // TODO add your handling code here:
+        menuAdminFrame menuAdminFrame = new menuAdminFrame();
+        menuAdminFrame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
     public static void main(String args[]) {

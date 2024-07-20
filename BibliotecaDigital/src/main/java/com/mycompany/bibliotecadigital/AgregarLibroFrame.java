@@ -29,25 +29,25 @@ public class AgregarLibroFrame extends javax.swing.JFrame {
         jtfContrasena2 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         background2 = new javax.swing.JPanel();
-        BibliotecaDigital2 = new javax.swing.JLabel();
-        InicioSesion1 = new javax.swing.JLabel();
-        AutorLabel = new javax.swing.JLabel();
+        BibliotecaDigital = new javax.swing.JLabel();
+        RegistrarLabel = new javax.swing.JLabel();
         TituloLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtaTitulo = new javax.swing.JTextArea();
+        AutorLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtaAutor = new javax.swing.JTextArea();
         ResumenLabel = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jtaResumen = new javax.swing.JTextArea();
-        ResumenLabel1 = new javax.swing.JLabel();
+        PDFLabel = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jtaPDF = new javax.swing.JTextArea();
-        ResumenLabel2 = new javax.swing.JLabel();
+        IMGLabel = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jtaImg = new javax.swing.JTextArea();
         jbAgregar = new javax.swing.JButton();
-        Regresar = new javax.swing.JButton();
+        jbRegresar = new javax.swing.JButton();
         background3 = new javax.swing.JPanel();
         background4 = new javax.swing.JPanel();
         jbSalir = new javax.swing.JButton();
@@ -67,19 +67,15 @@ public class AgregarLibroFrame extends javax.swing.JFrame {
 
         background2.setBackground(new java.awt.Color(7, 15, 43));
 
-        BibliotecaDigital2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
-        BibliotecaDigital2.setForeground(new java.awt.Color(255, 255, 255));
-        BibliotecaDigital2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon2_icon.png"))); // NOI18N
-        BibliotecaDigital2.setText("Biblioteca Digital");
+        BibliotecaDigital.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        BibliotecaDigital.setForeground(new java.awt.Color(255, 255, 255));
+        BibliotecaDigital.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon2_icon.png"))); // NOI18N
+        BibliotecaDigital.setText("Biblioteca Digital");
 
-        InicioSesion1.setFont(new java.awt.Font("Roboto Black", 0, 48)); // NOI18N
-        InicioSesion1.setForeground(new java.awt.Color(146, 144, 195));
-        InicioSesion1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        InicioSesion1.setText("Registrar Libro");
-
-        AutorLabel.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
-        AutorLabel.setForeground(new java.awt.Color(255, 255, 255));
-        AutorLabel.setText("Autor");
+        RegistrarLabel.setFont(new java.awt.Font("Roboto Black", 0, 48)); // NOI18N
+        RegistrarLabel.setForeground(new java.awt.Color(146, 144, 195));
+        RegistrarLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        RegistrarLabel.setText("Registrar Libro");
 
         TituloLabel.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
         TituloLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -90,6 +86,10 @@ public class AgregarLibroFrame extends javax.swing.JFrame {
         jtaTitulo.setRows(5);
         jScrollPane1.setViewportView(jtaTitulo);
 
+        AutorLabel.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
+        AutorLabel.setForeground(new java.awt.Color(255, 255, 255));
+        AutorLabel.setText("Autor");
+
         jtaAutor.setColumns(20);
         jtaAutor.setFont(new java.awt.Font("Roboto Thin", 0, 14)); // NOI18N
         jtaAutor.setRows(5);
@@ -97,25 +97,25 @@ public class AgregarLibroFrame extends javax.swing.JFrame {
 
         ResumenLabel.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
         ResumenLabel.setForeground(new java.awt.Color(255, 255, 255));
-        ResumenLabel.setText("Ruta IMG");
+        ResumenLabel.setText("Resumen");
 
         jtaResumen.setColumns(20);
         jtaResumen.setFont(new java.awt.Font("Roboto Thin", 0, 14)); // NOI18N
         jtaResumen.setRows(5);
         jScrollPane3.setViewportView(jtaResumen);
 
-        ResumenLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
-        ResumenLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        ResumenLabel1.setText("Resumen");
+        PDFLabel.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
+        PDFLabel.setForeground(new java.awt.Color(255, 255, 255));
+        PDFLabel.setText("Ruta PDF");
 
         jtaPDF.setColumns(20);
         jtaPDF.setFont(new java.awt.Font("Roboto Thin", 0, 14)); // NOI18N
         jtaPDF.setRows(5);
         jScrollPane4.setViewportView(jtaPDF);
 
-        ResumenLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
-        ResumenLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        ResumenLabel2.setText("Ruta PDF");
+        IMGLabel.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
+        IMGLabel.setForeground(new java.awt.Color(255, 255, 255));
+        IMGLabel.setText("Ruta IMG");
 
         jtaImg.setColumns(20);
         jtaImg.setFont(new java.awt.Font("Roboto Thin", 0, 14)); // NOI18N
@@ -132,13 +132,13 @@ public class AgregarLibroFrame extends javax.swing.JFrame {
             }
         });
 
-        Regresar.setBackground(new java.awt.Color(83, 92, 145));
-        Regresar.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
-        Regresar.setForeground(new java.awt.Color(255, 255, 255));
-        Regresar.setText("Regresar");
-        Regresar.addActionListener(new java.awt.event.ActionListener() {
+        jbRegresar.setBackground(new java.awt.Color(83, 92, 145));
+        jbRegresar.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
+        jbRegresar.setForeground(new java.awt.Color(255, 255, 255));
+        jbRegresar.setText("Regresar");
+        jbRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegresarActionPerformed(evt);
+                jbRegresarActionPerformed(evt);
             }
         });
 
@@ -153,12 +153,12 @@ public class AgregarLibroFrame extends javax.swing.JFrame {
                         .addGroup(background2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(background2Layout.createSequentialGroup()
                                 .addGap(31, 31, 31)
-                                .addComponent(InicioSesion1)
+                                .addComponent(RegistrarLabel)
                                 .addGap(244, 244, 244)
-                                .addComponent(BibliotecaDigital2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(ResumenLabel1)
-                            .addComponent(ResumenLabel2)
+                                .addComponent(BibliotecaDigital, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(ResumenLabel)
+                            .addComponent(PDFLabel)
+                            .addComponent(IMGLabel)
                             .addComponent(AutorLabel)
                             .addComponent(TituloLabel)
                             .addGroup(background2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -169,7 +169,7 @@ public class AgregarLibroFrame extends javax.swing.JFrame {
                                 .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, background2Layout.createSequentialGroup()
                         .addGap(219, 219, 219)
-                        .addComponent(Regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(112, 112, 112)
                         .addComponent(jbAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(13, Short.MAX_VALUE))
@@ -178,10 +178,10 @@ public class AgregarLibroFrame extends javax.swing.JFrame {
             background2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(background2Layout.createSequentialGroup()
                 .addGroup(background2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BibliotecaDigital2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BibliotecaDigital, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(background2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(InicioSesion1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(RegistrarLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TituloLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -191,21 +191,21 @@ public class AgregarLibroFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(ResumenLabel1)
+                .addComponent(ResumenLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(ResumenLabel2)
+                .addComponent(PDFLabel)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ResumenLabel)
+                .addComponent(IMGLabel)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(background2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbAgregar)
-                    .addComponent(Regresar))
+                    .addComponent(jbRegresar))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -222,9 +222,9 @@ public class AgregarLibroFrame extends javax.swing.JFrame {
         jPanel1.add(background4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 860, 790));
 
         jbSalir.setBackground(new java.awt.Color(255, 255, 255));
-        jbSalir.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
+        jbSalir.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
         jbSalir.setForeground(new java.awt.Color(0, 0, 0));
-        jbSalir.setText("X");
+        jbSalir.setText("<");
         jbSalir.setBorder(null);
         jbSalir.setBorderPainted(false);
         jbSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -233,7 +233,7 @@ public class AgregarLibroFrame extends javax.swing.JFrame {
                 jbSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
+        jPanel1.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -249,11 +249,11 @@ public class AgregarLibroFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarActionPerformed
+    private void jbRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegresarActionPerformed
         this.dispose();
         menuAdminFrame adminFrame = new menuAdminFrame();
         adminFrame.setVisible(true);
-    }//GEN-LAST:event_RegresarActionPerformed
+    }//GEN-LAST:event_jbRegresarActionPerformed
 
     private void jbAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarActionPerformed
         String titulo = jtaTitulo.getText().trim();
@@ -275,7 +275,9 @@ public class AgregarLibroFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jbAgregarActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
-        // TODO add your handling code here:
+        menuAdminFrame menuAdminFrame = new menuAdminFrame();
+        menuAdminFrame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
     public static void main(String args[]) {
@@ -311,13 +313,12 @@ public class AgregarLibroFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AutorLabel;
-    private javax.swing.JLabel BibliotecaDigital2;
+    private javax.swing.JLabel BibliotecaDigital;
     private javax.swing.JLabel Contrasena2;
-    private javax.swing.JLabel InicioSesion1;
-    private javax.swing.JButton Regresar;
+    private javax.swing.JLabel IMGLabel;
+    private javax.swing.JLabel PDFLabel;
+    private javax.swing.JLabel RegistrarLabel;
     private javax.swing.JLabel ResumenLabel;
-    private javax.swing.JLabel ResumenLabel1;
-    private javax.swing.JLabel ResumenLabel2;
     private javax.swing.JLabel TituloLabel;
     private javax.swing.JPanel background2;
     private javax.swing.JPanel background3;
@@ -329,6 +330,7 @@ public class AgregarLibroFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JButton jbAgregar;
+    private javax.swing.JButton jbRegresar;
     private javax.swing.JButton jbSalir;
     private javax.swing.JTextArea jtaAutor;
     private javax.swing.JTextArea jtaImg;

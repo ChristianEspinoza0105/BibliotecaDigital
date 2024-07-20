@@ -16,10 +16,10 @@ public class RegistroFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         background = new javax.swing.JPanel();
+        jbSalir = new javax.swing.JButton();
         BibliotecaDigital = new javax.swing.JLabel();
         RegistrarseLabel = new javax.swing.JLabel();
         UsuarioLabel = new javax.swing.JLabel();
-        jbRegresar = new javax.swing.JButton();
         ImagenLabel = new javax.swing.JLabel();
         RegistrarsePanel = new javax.swing.JPanel();
         SeparatorUsuario = new javax.swing.JSeparator();
@@ -35,6 +35,20 @@ public class RegistroFrame extends javax.swing.JFrame {
 
         background.setBackground(new java.awt.Color(255, 255, 255));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jbSalir.setBackground(new java.awt.Color(255, 255, 255));
+        jbSalir.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
+        jbSalir.setForeground(new java.awt.Color(0, 0, 0));
+        jbSalir.setText("<");
+        jbSalir.setBorder(null);
+        jbSalir.setBorderPainted(false);
+        jbSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
+        background.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
 
         BibliotecaDigital.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
         BibliotecaDigital.setForeground(new java.awt.Color(7, 15, 43));
@@ -52,18 +66,6 @@ public class RegistroFrame extends javax.swing.JFrame {
         UsuarioLabel.setForeground(new java.awt.Color(7, 15, 43));
         UsuarioLabel.setText("Nombre de Usuario");
         background.add(UsuarioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 340, -1, -1));
-
-        jbRegresar.setBackground(new java.awt.Color(7, 15, 43));
-        jbRegresar.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
-        jbRegresar.setForeground(new java.awt.Color(255, 255, 255));
-        jbRegresar.setText("<");
-        jbRegresar.setBorder(null);
-        jbRegresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbRegresarActionPerformed(evt);
-            }
-        });
-        background.add(jbRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 50));
 
         ImagenLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/books_imagen.png"))); // NOI18N
         background.add(ImagenLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 870));
@@ -141,12 +143,6 @@ public class RegistroFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegresarActionPerformed
-        this.dispose();
-        InicioFrame InicioFrame = new InicioFrame();
-        InicioFrame.setVisible(true);
-    }//GEN-LAST:event_jbRegresarActionPerformed
-
     private void jtfUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfUsuarioActionPerformed
@@ -169,6 +165,12 @@ public class RegistroFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jbRegistroActionPerformed
 
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        menuAdminFrame menuAdminFrame = new menuAdminFrame();
+        menuAdminFrame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbSalirActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -189,7 +191,7 @@ public class RegistroFrame extends javax.swing.JFrame {
     private javax.swing.JLabel UsuarioLabel;
     private javax.swing.JPanel background;
     private javax.swing.JButton jbRegistro;
-    private javax.swing.JButton jbRegresar;
+    private javax.swing.JButton jbSalir;
     private javax.swing.JTextField jtfContrasena;
     private javax.swing.JTextField jtfUsuario;
     // End of variables declaration//GEN-END:variables

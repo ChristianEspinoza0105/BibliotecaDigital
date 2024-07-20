@@ -16,6 +16,10 @@ import javax.swing.JOptionPane;
 public class LibroDAO {
     private Connection connection;
     private Monitor monitor;
+    
+    public LibroDAO(Connection connection) {
+        this.connection = connection;
+    }
 
     public LibroDAO() {
         String url = "jdbc:postgresql://localhost:5432/biblioteca";
@@ -161,23 +165,24 @@ public class LibroDAO {
         return libro[0];
     }
     
-    public String obtenerRutaPDF(String titulo) {
-        String sql = "SELECT pdf_path FROM libros WHERE titulo = ?";
-        final String[] pdfPath = { null };
+    public Libro buscarLibroPorRutaPDF(String pdfPath) {
+        String query = "SELECT * FROM libros WHERE pdf_path = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, pdfPath);
+            ResultSet resultSet = statement.executeQuery();
 
-        monitor.sincronizarAcceso(() -> {
-            try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-                stmt.setString(1, titulo);
-                try (ResultSet rs = stmt.executeQuery()) {
-                    if (rs.next()) {
-                        pdfPath[0] = rs.getString("pdf_path");
-                    }
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
+            if (resultSet.next()) {
+                String titulo = resultSet.getString("titulo");
+                String autor = resultSet.getString("autor");
+                String imagenPath = resultSet.getString("imagen_path");
+                String resumen = resultSet.getString("resumen");
+                String pdfPathFromDB = resultSet.getString("pdf_path");
+
+                return new Libro(titulo, autor, imagenPath, resumen, pdfPathFromDB);
             }
-        });
-
-        return pdfPath[0];
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
