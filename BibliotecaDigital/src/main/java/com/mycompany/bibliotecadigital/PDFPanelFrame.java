@@ -1,6 +1,5 @@
 package com.mycompany.bibliotecadigital;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import org.apache.pdfbox.pdmodel.PDDocument;

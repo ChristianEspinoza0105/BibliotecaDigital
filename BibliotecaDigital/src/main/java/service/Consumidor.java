@@ -16,7 +16,6 @@ public class Consumidor implements Runnable {
         try {
             Libro libro;
             while ((libro = cola.take()) != null) {
-                // Procesa el libro recibido (por ejemplo, muestra en la interfaz gráfica)
                 System.out.println("Libro recibido: " + libro.getTitulo());
             }
         } catch (InterruptedException e) {

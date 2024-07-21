@@ -1,34 +1,25 @@
 
 package com.mycompany.bibliotecadigital;
 
+import dao.DatabaseManager;
 import java.awt.Color;
 import javax.swing.JOptionPane;
-import java.util.HashMap;
+import model.Usuario;
 
 public class InicioFrame extends javax.swing.JFrame {
 
-    private HashMap<String, String> usuarios = new HashMap<>();
-    private HashMap<String, String> administradores = new HashMap<>();
+    private DatabaseManager dbManager;
     int xMouse, yMouse;
         
     public InicioFrame() {
+        this.dbManager = new DatabaseManager();
         initComponents();
-        inicializarUsuarios();      
-    }
-    
-    private void inicializarUsuarios() {
-        administradores.put("admin", "admin123");
     }
     
     public void agregarUsuario(String usuario, String contrasena) {
-        if (usuarios.containsKey(usuario)) {
-            JOptionPane.showMessageDialog(this, "El usuario ya existe.");
-        } else {
-            usuarios.put(usuario, contrasena);
-            JOptionPane.showMessageDialog(this, "Usuario registrado exitosamente.");
-        }
-    }
-    
+        Usuario nuevoUsuario = new Usuario(usuario, contrasena);
+        dbManager.agregarUsuario(nuevoUsuario);
+    }  
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -338,12 +329,12 @@ public class InicioFrame extends javax.swing.JFrame {
         String usuario = jtfUsuario.getText();
         String contrasena = jtfContrasena.getText();
 
-        if (usuarios.containsKey(usuario) && usuarios.get(usuario).equals(contrasena)) {
+        if (dbManager.verificarCredenciales(usuario, contrasena)) {
             JOptionPane.showMessageDialog(this, "Inicio de sesión exitoso como usuario.");
             menuUserFrame userFrame = new menuUserFrame();
             userFrame.setVisible(true);
             this.dispose();
-        } else if (administradores.containsKey(usuario) && administradores.get(usuario).equals(contrasena)) {
+        } else if (dbManager.verificarCredencialesAdmin(usuario, contrasena)) {
             JOptionPane.showMessageDialog(this, "Inicio de sesión exitoso como administrador.");
             menuAdminFrame adminFrame = new menuAdminFrame();
             adminFrame.setVisible(true);

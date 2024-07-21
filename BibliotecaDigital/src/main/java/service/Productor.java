@@ -16,7 +16,6 @@ public class Productor implements Runnable {
     @Override
     public void run() {
         try {
-            // Envía el libro completo a través de la cola
             cola.put(libro);
             System.out.println("Libro enviado a la cola: " + libro.getTitulo());
         } catch (InterruptedException e) {

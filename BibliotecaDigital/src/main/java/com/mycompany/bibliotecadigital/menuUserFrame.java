@@ -1,5 +1,6 @@
 package com.mycompany.bibliotecadigital;
 
+import dao.DatabaseManager;
 import dao.LibroDAO;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -14,6 +15,8 @@ public class menuUserFrame extends javax.swing.JFrame {
     
     private JPanel panelLibros;
     private LibroDAO libroDAO;
+    private int userId;
+    private DatabaseManager dbManager;
     int xMouse, yMouse;
 
     public menuUserFrame() {

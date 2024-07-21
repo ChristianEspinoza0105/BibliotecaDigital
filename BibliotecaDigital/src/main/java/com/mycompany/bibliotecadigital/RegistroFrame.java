@@ -1,15 +1,20 @@
 package com.mycompany.bibliotecadigital;
 
+import dao.DatabaseManager;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import model.Usuario;
 
 public class RegistroFrame extends javax.swing.JFrame {
 
+
     private InicioFrame principalFrame;
+    private DatabaseManager dbManager;
     int xMouse, yMouse;
     
     public RegistroFrame(InicioFrame principalFrame) {
         this.principalFrame = principalFrame;
+        this.dbManager = new DatabaseManager();
         initComponents();
     }
 
@@ -296,17 +301,18 @@ public class RegistroFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jtfContrasenaActionPerformed
 
     private void jbRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegistroActionPerformed
-        String usuario = jtfUsuario.getText();
-        String contrasena = jtfContrasena.getText();
+            String usuario = jtfUsuario.getText();
+            String contrasena = jtfContrasena.getText();
 
-        if (usuario.isEmpty() || contrasena.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Se debe completar todos los campos.",
-                    "Campos Incompletos", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            principalFrame.agregarUsuario(usuario, contrasena);
-            principalFrame.setVisible(true);
-            this.dispose();
-        }
+            if (usuario.isEmpty() || contrasena.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Se debe completar todos los campos.",
+                        "Campos Incompletos", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                Usuario nuevoUsuario = new Usuario(usuario, contrasena);
+                dbManager.agregarUsuario(nuevoUsuario);
+                principalFrame.setVisible(true);
+                this.dispose();
+            }
     }//GEN-LAST:event_jbRegistroActionPerformed
 
     private void LabelRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelRegresarMouseClicked
