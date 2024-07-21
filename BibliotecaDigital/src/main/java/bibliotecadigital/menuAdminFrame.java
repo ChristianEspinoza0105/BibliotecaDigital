@@ -1,4 +1,4 @@
-package com.mycompany.bibliotecadigital;
+package bibliotecadigital;
 
 import dao.LibroDAO;
 import java.awt.BorderLayout;

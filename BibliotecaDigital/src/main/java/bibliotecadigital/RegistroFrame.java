@@ -1,4 +1,4 @@
-package com.mycompany.bibliotecadigital;
+package bibliotecadigital;
 
 import dao.DatabaseManager;
 import java.awt.Color;

@@ -1,5 +1,5 @@
 
-package com.mycompany.bibliotecadigital;
+package bibliotecadigital;
 
 import model.Libro;
 import dao.LibroDAO;

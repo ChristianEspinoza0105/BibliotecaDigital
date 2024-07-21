@@ -1,4 +1,4 @@
-package com.mycompany.bibliotecadigital;
+package bibliotecadigital;
 
 import java.awt.Image;
 import java.io.File;
