@@ -20,7 +20,7 @@ public class InicioFrame extends javax.swing.JFrame {
         
     public InicioFrame() {
         initComponents();
-         dbManager = new DatabaseManager(); // Inicializa dbManager aquí
+         dbManager = new DatabaseManager();
         
         if (webServer == null) {
             System.out.println("Creando e iniciando el servidor web...");

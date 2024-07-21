@@ -238,11 +238,9 @@ public class RegistroFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtfUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfUsuarioActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jtfUsuarioActionPerformed
 
     private void jtfContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfContrasenaActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jtfContrasenaActionPerformed
 
     private void jbRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegistroActionPerformed

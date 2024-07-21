@@ -377,7 +377,7 @@ public class ModificarLibroFrame extends javax.swing.JFrame {
             return;
         }
 
-        Libro libro = new Libro(0, titulo, autor, pdfPath, imagenPath, resumen); // ID 0 porque no se usa en la actualización por título
+        Libro libro = new Libro(0, titulo, autor, pdfPath, imagenPath, resumen);
         boolean actualizado = libroDAO.actualizarLibro(libro);
 
         if (actualizado) {

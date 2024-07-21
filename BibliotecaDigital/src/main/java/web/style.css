@@ -45,23 +45,23 @@ body {
 .flex {
   display: flex;
   flex-direction: column;
-  gap: 35px; /* Espacio entre los campos */
-  width: 100%; /* Ancho completo del contenedor */
+  gap: 35px;
+  width: 100%; 
 }
 
 .form label {
   position: relative;
-  width: 100%; /* Ancho completo del contenedor */
+  width: 100%; 
 }
 
 .form label .input,
 .form label .input01 {
-  width: 100%; /* Ancho completo del contenedor */
-  padding: 12px; /* Relleno interno */
+  width: 100%; 
+  padding: 12px; 
   outline: 0;
-  border: 1px solid rgba(0, 0, 0, 0.775); /* Color del borde */
-  border-radius: 8px; /* Radio del borde */
-  box-sizing: border-box; /* Incluir el relleno y el borde en el ancho total */
+  border: 1px solid rgba(0, 0, 0, 0.775); 
+  border-radius: 8px; 
+  box-sizing: border-box; 
 }
 
 .form label .input + span,
@@ -83,37 +83,37 @@ body {
 .form label .input:valid + span,
 .form label .input01:focus + span,
 .form label .input01:valid + span {
-  top: 51px; /* Reducir el desplazamiento */
+  top: 51px; 
   font-size: 0.8em;
   font-weight: 600;
 }
 
 .form label .input:valid + span,
 .form label .input01:valid + span {
-  color: #000000; /* Color azul */
+  color: #000000;
 }
 
 .fancy {
   background-color: transparent;
-  border: 2px solid rgba(0, 0, 0, 0.775); /* Color del borde */
-  border-radius: 5px; /* Redondeo del borde */
+  border: 2px solid rgba(0, 0, 0, 0.775);
+  border-radius: 5px; 
   box-sizing: border-box;
   color: #000000;
   cursor: pointer;
   display: inline-block;
-  font-weight: 400; /* Ajustar peso de la fuente */
-  letter-spacing: 1px; /* Ajustar espaciado de letras */
+  font-weight: 400;
+  letter-spacing: 1px; 
   margin: 0;
   outline: none;
   overflow: visible;
-  padding: 12px 30px; /* Ajustar relleno interno */
+  padding: 12px 30px; 
   position: relative;
   text-align: center;
   text-decoration: none;
   text-transform: none;
   transition: all 0.3s ease-in-out;
   user-select: none;
-  font-size: 14px; /* Tamaño de la fuente */
+  font-size: 14px; 
 }
 
 .fancy::before {
@@ -131,9 +131,9 @@ body {
 }
 
 .fancy .text {
-  font-size: 1.1em; /* Tamaño de la fuente del texto */
+  font-size: 1.1em; 
   line-height: 1.5em;
-  padding-left: 2em; /* Ajustar espacio a la izquierda del texto */
+  padding-left: 2em; 
   display: block;
   text-align: left;
   transition: all 0.3s ease-in-out;
