@@ -525,7 +525,7 @@ public class PDFPanelFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_OpcionesPanelMouseDragged
 
     private void LabelCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelCerrarMouseClicked
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_LabelCerrarMouseClicked
 
     private void PanelCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelCerrarMouseEntered
@@ -534,8 +534,8 @@ public class PDFPanelFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_PanelCerrarMouseEntered
 
     private void PanelCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelCerrarMouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_PanelCerrarMouseClicked
+        this.dispose();
+     }//GEN-LAST:event_PanelCerrarMouseClicked
 
     private void PanelCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelCerrarMouseExited
         PanelCerrar.setBackground(Color.white);
