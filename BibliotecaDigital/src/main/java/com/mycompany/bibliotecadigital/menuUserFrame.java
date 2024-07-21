@@ -100,6 +100,7 @@ public class menuUserFrame extends javax.swing.JFrame {
         LabelCerrar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setLocationByPlatform(true);
         setUndecorated(true);
 
@@ -169,7 +170,7 @@ public class menuUserFrame extends javax.swing.JFrame {
         });
         jPanel1.add(BibliotecaDigital2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 230, 60));
 
-        PanelCerrar.setBackground(new java.awt.Color(255, 255, 255));
+        PanelCerrar.setBackground(new java.awt.Color(7, 15, 43));
         PanelCerrar.setPreferredSize(new java.awt.Dimension(54, 33));
         PanelCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -184,7 +185,7 @@ public class menuUserFrame extends javax.swing.JFrame {
         });
 
         LabelCerrar.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
-        LabelCerrar.setForeground(new java.awt.Color(0, 0, 0));
+        LabelCerrar.setForeground(new java.awt.Color(255, 255, 255));
         LabelCerrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LabelCerrar.setText("X");
         LabelCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -213,8 +214,8 @@ public class menuUserFrame extends javax.swing.JFrame {
             PanelCerrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelCerrarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(LabelCerrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(LabelCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         jPanel1.add(PanelCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 0, 40, 30));
@@ -229,7 +230,7 @@ public class menuUserFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 814, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -274,8 +275,8 @@ public class menuUserFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_PanelCerrarMouseEntered
 
     private void PanelCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelCerrarMouseExited
-        PanelCerrar.setBackground(Color.white);
-        LabelCerrar.setForeground(Color.black);
+        PanelCerrar.setBackground(new Color(7, 16, 43));
+        LabelCerrar.setForeground(Color.white);
     }//GEN-LAST:event_PanelCerrarMouseExited
 
     private void jbBuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbBuscarMouseEntered

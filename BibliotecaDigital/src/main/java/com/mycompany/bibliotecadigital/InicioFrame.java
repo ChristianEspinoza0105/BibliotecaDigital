@@ -3,17 +3,53 @@ package com.mycompany.bibliotecadigital;
 
 import dao.DatabaseManager;
 import java.awt.Color;
+import java.awt.Desktop;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.net.URI;
 import javax.swing.JOptionPane;
 import model.Usuario;
+import web.SimpleWebServer;
 
 public class InicioFrame extends javax.swing.JFrame {
 
     private DatabaseManager dbManager;
+    private SimpleWebServer webServer;
+    
     int xMouse, yMouse;
         
     public InicioFrame() {
-        this.dbManager = new DatabaseManager();
         initComponents();
+        
+        if (webServer == null) {
+            System.out.println("Creando e iniciando el servidor web...");
+            webServer = new SimpleWebServer();
+            new Thread(() -> {
+                System.out.println("Iniciando el servidor web en un nuevo hilo...");
+                webServer.start();
+            }).start();
+        } else {
+            System.out.println("El servidor web ya está en ejecución.");
+        }
+
+        System.out.println("Registrando MouseListener para LabelAyuda...");
+        LabelAyuda.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                System.out.println("Clic en LabelAyuda detectado.");
+            }
+        });
+
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                System.out.println("Cierre de ventana detectado.");
+                if (webServer != null) {
+                    System.out.println("Deteniendo el servidor web...");
+                    webServer.stop();
+                }
+            }
+        });
     }
     
     public void agregarUsuario(String usuario, String contrasena) {
@@ -38,7 +74,7 @@ public class InicioFrame extends javax.swing.JFrame {
         background3 = new javax.swing.JPanel();
         background4 = new javax.swing.JPanel();
         BibliotecaDigital2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        LabelAyuda = new javax.swing.JLabel();
         RegistrarsePanel = new javax.swing.JPanel();
         OpcionesPanel = new javax.swing.JPanel();
         PanelCerrar = new javax.swing.JPanel();
@@ -209,22 +245,22 @@ public class InicioFrame extends javax.swing.JFrame {
         BibliotecaDigital2.setText("Biblioteca Digital");
         background.add(BibliotecaDigital2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 410, 60));
 
-        jLabel1.setFont(new java.awt.Font("Roboto Thin", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("¿Necesitas ayuda? ¡Estamos aquí para ti! Haz clic aquí para obtener asistencia inmediata.  ");
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        LabelAyuda.setFont(new java.awt.Font("Roboto Thin", 1, 14)); // NOI18N
+        LabelAyuda.setForeground(new java.awt.Color(0, 0, 0));
+        LabelAyuda.setText("¿Necesitas ayuda? ¡Estamos aquí para ti! Haz clic aquí para obtener asistencia inmediata.  ");
+        LabelAyuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LabelAyuda.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                LabelAyudaMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel1MouseEntered(evt);
+                LabelAyudaMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel1MouseExited(evt);
+                LabelAyudaMouseExited(evt);
             }
         });
-        background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 830, -1, 40));
+        background.add(LabelAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 830, -1, 40));
 
         RegistrarsePanel.setBackground(new java.awt.Color(7, 15, 43));
 
@@ -340,11 +376,9 @@ public class InicioFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtfUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfUsuarioActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jtfUsuarioActionPerformed
 
     private void jtfContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfContrasenaActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jtfContrasenaActionPerformed
 
     private void jbIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIniciarActionPerformed
@@ -445,17 +479,25 @@ public class InicioFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jtfContrasenaMousePressed
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel1MouseClicked
+    private void LabelAyudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelAyudaMouseClicked
+        System.out.println("Intentando abrir el navegador...");
+        try {
+            if (Desktop.isDesktopSupported()) {
+                Desktop.getDesktop().browse(new URI("http://localhost:8080"));
+                System.out.println("Navegador abierto en URI: http://localhost:8080");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_LabelAyudaMouseClicked
 
-    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
-            jLabel1.setForeground(Color.blue);
-    }//GEN-LAST:event_jLabel1MouseEntered
+    private void LabelAyudaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelAyudaMouseEntered
+            LabelAyuda.setForeground(Color.blue);
+    }//GEN-LAST:event_LabelAyudaMouseEntered
 
-    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
-            jLabel1.setForeground(Color.black);
-    }//GEN-LAST:event_jLabel1MouseExited
+    private void LabelAyudaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelAyudaMouseExited
+            LabelAyuda.setForeground(Color.black);
+    }//GEN-LAST:event_LabelAyudaMouseExited
 
 
     private void jbRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {
@@ -536,6 +578,7 @@ public class InicioFrame extends javax.swing.JFrame {
     private javax.swing.JLabel BibliotecaDigital2;
     private javax.swing.JLabel ContraseñaLabel;
     private javax.swing.JLabel InicioSesion;
+    private javax.swing.JLabel LabelAyuda;
     private javax.swing.JLabel LabelCerrar;
     private javax.swing.JPanel OpcionesPanel;
     private javax.swing.JPanel PanelCerrar;
@@ -545,7 +588,6 @@ public class InicioFrame extends javax.swing.JFrame {
     private javax.swing.JPanel background2;
     private javax.swing.JPanel background3;
     private javax.swing.JPanel background4;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbIniciar;

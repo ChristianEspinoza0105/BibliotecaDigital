@@ -1,0 +1,199 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffffff;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 800px;
+  height: 550px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 15px;
+  position: absolute;
+  left: 30%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.823);
+  box-sizing: border-box;
+}
+
+.message {
+  color: rgba(6, 6, 11, 0.397);
+  font-size: 16px;
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  gap: 35px; /* Espacio entre los campos */
+  width: 100%; /* Ancho completo del contenedor */
+}
+
+.form label {
+  position: relative;
+  width: 100%; /* Ancho completo del contenedor */
+}
+
+.form label .input,
+.form label .input01 {
+  width: 100%; /* Ancho completo del contenedor */
+  padding: 12px; /* Relleno interno */
+  outline: 0;
+  border: 1px solid rgba(0, 0, 0, 0.775); /* Color del borde */
+  border-radius: 8px; /* Radio del borde */
+  box-sizing: border-box; /* Incluir el relleno y el borde en el ancho total */
+}
+
+.form label .input + span,
+.form label .input01 + span {
+  position: absolute;
+  left: 17px;
+  color: rgb(0, 0, 0);
+  font-size: 0.8em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span,
+.form label .input01:placeholder-shown + span {
+  top: 52px;
+}
+
+.form label .input:focus + span,
+.form label .input:valid + span,
+.form label .input01:focus + span,
+.form label .input01:valid + span {
+  top: 51px; /* Reducir el desplazamiento */
+  font-size: 0.8em;
+  font-weight: 600;
+}
+
+.form label .input:valid + span,
+.form label .input01:valid + span {
+  color: #000000; /* Color azul */
+}
+
+.fancy {
+  background-color: transparent;
+  border: 2px solid rgba(0, 0, 0, 0.775); /* Color del borde */
+  border-radius: 5px; /* Redondeo del borde */
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400; /* Ajustar peso de la fuente */
+  letter-spacing: 1px; /* Ajustar espaciado de letras */
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 12px 30px; /* Ajustar relleno interno */
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  transition: all 0.3s ease-in-out;
+  user-select: none;
+  font-size: 14px; /* Tamaño de la fuente */
+}
+
+.fancy::before {
+  content: " ";
+  width: 2rem;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.397);
+  top: 50%;
+  left: 1.5em;
+  position: absolute;
+  transform: translateY(-50%);
+  transform: translateX(230%);
+  transform-origin: center;
+  transition: background 0.3s linear, width 0.3s linear;
+}
+
+.fancy .text {
+  font-size: 1.1em; /* Tamaño de la fuente del texto */
+  line-height: 1.5em;
+  padding-left: 2em; /* Ajustar espacio a la izquierda del texto */
+  display: block;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  transform: translateX(30%);
+}
+
+.fancy .top-key {
+  height: 2px;
+  width: 1.8rem;
+  top: -2px;
+  left: 0.75rem;
+  position: absolute;
+  background: white;
+  transition: width 0.5s ease-out, left 0.3s ease-out;
+}
+
+.fancy .bottom-key-1 {
+  height: 2px;
+  width: 1.8rem;
+  right: 2rem;
+  bottom: -2px;
+  position: absolute;
+  background: rgb(255, 255, 255);
+  transition: width 0.5s ease-out, right 0.3s ease-out;
+}
+
+.fancy .bottom-key-2 {
+  height: 2px;
+  width: 0.75rem;
+  right: 0.75rem;
+  bottom: -2px;
+  position: absolute;
+  background: rgb(255, 255, 255);
+  transition: width 0.5s ease-out, right 0.3s ease-out;
+}
+
+.fancy:hover {
+  color: rgb(255, 255, 255);
+  background: rgb(0, 0, 0);
+}
+
+.fancy:hover::before {
+  width: 1.7rem;
+  background: white;
+}
+
+.fancy:hover .text {
+  color: white;
+  padding-left: 1.8em;
+}
+
+.fancy:hover .top-key {
+  left: -2px;
+  width: 0px;
+}
+
+.fancy:hover .bottom-key-1,
+.fancy:hover .bottom-key-2 {
+  right: 0;
+  width: 0;
+}
