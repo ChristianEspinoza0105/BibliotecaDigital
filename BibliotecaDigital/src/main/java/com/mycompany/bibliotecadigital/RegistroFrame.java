@@ -23,15 +23,13 @@ public class RegistroFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         background = new javax.swing.JPanel();
+        ImagenLabel = new javax.swing.JLabel();
         OpcionesPanel = new javax.swing.JPanel();
-        PanelRegresar = new javax.swing.JPanel();
-        LabelRegresar = new javax.swing.JLabel();
         PanelCerrar = new javax.swing.JPanel();
         LabelCerrar = new javax.swing.JLabel();
         BibliotecaDigital = new javax.swing.JLabel();
         RegistrarseLabel = new javax.swing.JLabel();
         UsuarioLabel = new javax.swing.JLabel();
-        ImagenLabel = new javax.swing.JLabel();
         RegistrarsePanel = new javax.swing.JPanel();
         SeparatorUsuario = new javax.swing.JSeparator();
         jtfUsuario = new javax.swing.JTextField();
@@ -47,6 +45,9 @@ public class RegistroFrame extends javax.swing.JFrame {
         background.setBackground(new java.awt.Color(255, 255, 255));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        ImagenLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/books_imagen.png"))); // NOI18N
+        background.add(ImagenLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 830));
+
         OpcionesPanel.setBackground(new java.awt.Color(255, 255, 255));
         OpcionesPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -58,55 +59,6 @@ public class RegistroFrame extends javax.swing.JFrame {
                 OpcionesPanelMousePressed(evt);
             }
         });
-
-        PanelRegresar.setBackground(new java.awt.Color(255, 255, 255));
-        PanelRegresar.setAlignmentY(0.4F);
-        PanelRegresar.setPreferredSize(new java.awt.Dimension(54, 33));
-        PanelRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PanelRegresarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                PanelRegresarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                PanelRegresarMouseExited(evt);
-            }
-        });
-
-        LabelRegresar.setFont(new java.awt.Font("Roboto Black", 0, 28)); // NOI18N
-        LabelRegresar.setForeground(new java.awt.Color(0, 0, 0));
-        LabelRegresar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LabelRegresar.setText("<");
-        LabelRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LabelRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LabelRegresarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                LabelRegresarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                LabelRegresarMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout PanelRegresarLayout = new javax.swing.GroupLayout(PanelRegresar);
-        PanelRegresar.setLayout(PanelRegresarLayout);
-        PanelRegresarLayout.setHorizontalGroup(
-            PanelRegresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelRegresarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(LabelRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        PanelRegresarLayout.setVerticalGroup(
-            PanelRegresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelRegresarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(LabelRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
-        );
 
         PanelCerrar.setBackground(new java.awt.Color(255, 255, 255));
         PanelCerrar.setPreferredSize(new java.awt.Dimension(54, 33));
@@ -145,7 +97,7 @@ public class RegistroFrame extends javax.swing.JFrame {
             PanelCerrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelCerrarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(LabelCerrar, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                .addComponent(LabelCerrar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                 .addContainerGap())
         );
         PanelCerrarLayout.setVerticalGroup(
@@ -161,21 +113,17 @@ public class RegistroFrame extends javax.swing.JFrame {
         OpcionesPanelLayout.setHorizontalGroup(
             OpcionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(OpcionesPanelLayout.createSequentialGroup()
-                .addComponent(PanelCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PanelRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1226, Short.MAX_VALUE))
+                .addContainerGap(1298, Short.MAX_VALUE)
+                .addComponent(PanelCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         OpcionesPanelLayout.setVerticalGroup(
             OpcionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(OpcionesPanelLayout.createSequentialGroup()
-                .addGroup(OpcionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanelRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                    .addComponent(PanelCerrar, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
+                .addComponent(PanelCerrar, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        background.add(OpcionesPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1340, 40));
+        background.add(OpcionesPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1340, 30));
 
         BibliotecaDigital.setFont(new java.awt.Font("Roboto Medium", 0, 48)); // NOI18N
         BibliotecaDigital.setForeground(new java.awt.Color(7, 15, 43));
@@ -193,9 +141,6 @@ public class RegistroFrame extends javax.swing.JFrame {
         UsuarioLabel.setForeground(new java.awt.Color(7, 15, 43));
         UsuarioLabel.setText("Nombre de Usuario");
         background.add(UsuarioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 340, -1, -1));
-
-        ImagenLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/books_imagen.png"))); // NOI18N
-        background.add(ImagenLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, 790));
 
         RegistrarsePanel.setBackground(new java.awt.Color(7, 15, 43));
 
@@ -322,40 +267,10 @@ public class RegistroFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jbRegistroActionPerformed
 
-    private void LabelRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelRegresarMouseClicked
-        InicioFrame InicioFrame = new InicioFrame();
-        InicioFrame.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_LabelRegresarMouseClicked
-
-    private void LabelRegresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelRegresarMouseEntered
-        PanelRegresar.setBackground(new Color(57, 153, 24));
-        LabelRegresar.setForeground(Color.white);
-    }//GEN-LAST:event_LabelRegresarMouseEntered
-
-    private void LabelRegresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelRegresarMouseExited
-        PanelRegresar.setBackground(Color.white);
-        LabelRegresar.setForeground(Color.black);
-    }//GEN-LAST:event_LabelRegresarMouseExited
-
-    private void PanelRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelRegresarMouseClicked
-        InicioFrame InicioFrame = new InicioFrame();
-        InicioFrame.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_PanelRegresarMouseClicked
-
-    private void PanelRegresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelRegresarMouseEntered
-        PanelRegresar.setBackground(new Color(57, 153, 24));
-        LabelRegresar.setForeground(Color.white);
-    }//GEN-LAST:event_PanelRegresarMouseEntered
-
-    private void PanelRegresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelRegresarMouseExited
-        PanelRegresar.setBackground(Color.white);
-        LabelRegresar.setForeground(Color.black);
-    }//GEN-LAST:event_PanelRegresarMouseExited
-
     private void LabelCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelCerrarMouseClicked
-        System.exit(0);
+        InicioFrame InicioFrame = new InicioFrame();
+        InicioFrame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_LabelCerrarMouseClicked
 
     private void LabelCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelCerrarMouseEntered
@@ -369,7 +284,9 @@ public class RegistroFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_LabelCerrarMouseExited
 
     private void PanelCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelCerrarMouseClicked
-        System.exit(0);
+        InicioFrame InicioFrame = new InicioFrame();
+        InicioFrame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_PanelCerrarMouseClicked
 
     private void PanelCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelCerrarMouseEntered
@@ -439,10 +356,8 @@ public class RegistroFrame extends javax.swing.JFrame {
     private javax.swing.JLabel ContraseñaLabel;
     private javax.swing.JLabel ImagenLabel;
     private javax.swing.JLabel LabelCerrar;
-    private javax.swing.JLabel LabelRegresar;
     private javax.swing.JPanel OpcionesPanel;
     private javax.swing.JPanel PanelCerrar;
-    private javax.swing.JPanel PanelRegresar;
     private javax.swing.JLabel RegistrarseLabel;
     private javax.swing.JPanel RegistrarsePanel;
     private javax.swing.JSeparator SeparatorContraseña;

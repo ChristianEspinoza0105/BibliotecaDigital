@@ -53,8 +53,6 @@ public class AgregarLibroFrame extends javax.swing.JFrame {
         background3 = new javax.swing.JPanel();
         background4 = new javax.swing.JPanel();
         OpcionesPanel3 = new javax.swing.JPanel();
-        PanelRegresa = new javax.swing.JPanel();
-        LabelRegresa = new javax.swing.JLabel();
         PanelCerrar = new javax.swing.JPanel();
         LabelCerrar = new javax.swing.JLabel();
 
@@ -244,55 +242,6 @@ public class AgregarLibroFrame extends javax.swing.JFrame {
             }
         });
 
-        PanelRegresa.setBackground(new java.awt.Color(255, 255, 255));
-        PanelRegresa.setAlignmentY(0.4F);
-        PanelRegresa.setPreferredSize(new java.awt.Dimension(54, 33));
-        PanelRegresa.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PanelRegresaMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                PanelRegresaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                PanelRegresaMouseExited(evt);
-            }
-        });
-
-        LabelRegresa.setFont(new java.awt.Font("Roboto Black", 0, 28)); // NOI18N
-        LabelRegresa.setForeground(new java.awt.Color(0, 0, 0));
-        LabelRegresa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LabelRegresa.setText("<");
-        LabelRegresa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LabelRegresa.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LabelRegresaMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                LabelRegresaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                LabelRegresaMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout PanelRegresaLayout = new javax.swing.GroupLayout(PanelRegresa);
-        PanelRegresa.setLayout(PanelRegresaLayout);
-        PanelRegresaLayout.setHorizontalGroup(
-            PanelRegresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelRegresaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(LabelRegresa, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        PanelRegresaLayout.setVerticalGroup(
-            PanelRegresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelRegresaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(LabelRegresa, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
-        );
-
         PanelCerrar.setBackground(new java.awt.Color(255, 255, 255));
         PanelCerrar.setPreferredSize(new java.awt.Dimension(54, 33));
         PanelCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -345,18 +294,14 @@ public class AgregarLibroFrame extends javax.swing.JFrame {
         OpcionesPanel3.setLayout(OpcionesPanel3Layout);
         OpcionesPanel3Layout.setHorizontalGroup(
             OpcionesPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(OpcionesPanel3Layout.createSequentialGroup()
-                .addComponent(PanelCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PanelRegresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1226, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OpcionesPanel3Layout.createSequentialGroup()
+                .addGap(0, 1286, Short.MAX_VALUE)
+                .addComponent(PanelCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         OpcionesPanel3Layout.setVerticalGroup(
             OpcionesPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(OpcionesPanel3Layout.createSequentialGroup()
-                .addGroup(OpcionesPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanelRegresa, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                    .addComponent(PanelCerrar, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
+                .addComponent(PanelCerrar, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -401,40 +346,10 @@ public class AgregarLibroFrame extends javax.swing.JFrame {
         limpiarCampos();
     }//GEN-LAST:event_jbAgregarActionPerformed
 
-    private void LabelRegresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelRegresaMouseClicked
-        menuAdminFrame menuAdminFrame = new menuAdminFrame();
-        menuAdminFrame.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_LabelRegresaMouseClicked
-
-    private void LabelRegresaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelRegresaMouseEntered
-        PanelRegresa.setBackground(new Color(57, 153, 24));
-        LabelRegresa.setForeground(Color.white);
-    }//GEN-LAST:event_LabelRegresaMouseEntered
-
-    private void LabelRegresaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelRegresaMouseExited
-        PanelRegresa.setBackground(Color.white);
-        LabelRegresa.setForeground(Color.black);
-    }//GEN-LAST:event_LabelRegresaMouseExited
-
-    private void PanelRegresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelRegresaMouseClicked
-        menuAdminFrame menuAdminFrame = new menuAdminFrame();
-        menuAdminFrame.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_PanelRegresaMouseClicked
-
-    private void PanelRegresaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelRegresaMouseEntered
-        PanelRegresa.setBackground(new Color(57, 153, 24));
-        LabelRegresa.setForeground(Color.white);
-    }//GEN-LAST:event_PanelRegresaMouseEntered
-
-    private void PanelRegresaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelRegresaMouseExited
-        PanelRegresa.setBackground(Color.white);
-        LabelRegresa.setForeground(Color.black);
-    }//GEN-LAST:event_PanelRegresaMouseExited
-
     private void LabelCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelCerrarMouseClicked
-        System.exit(0);
+        this.dispose();
+        menuAdminFrame adminFrame = new menuAdminFrame();
+        adminFrame.setVisible(true);  
     }//GEN-LAST:event_LabelCerrarMouseClicked
 
     private void LabelCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelCerrarMouseEntered
@@ -448,7 +363,9 @@ public class AgregarLibroFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_LabelCerrarMouseExited
 
     private void PanelCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelCerrarMouseClicked
-        System.exit(0);
+        this.dispose();
+        menuAdminFrame adminFrame = new menuAdminFrame();
+        adminFrame.setVisible(true);  
     }//GEN-LAST:event_PanelCerrarMouseClicked
 
     private void PanelCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelCerrarMouseEntered
@@ -515,11 +432,9 @@ public class AgregarLibroFrame extends javax.swing.JFrame {
     private javax.swing.JLabel Contrasena2;
     private javax.swing.JLabel IMGLabel;
     private javax.swing.JLabel LabelCerrar;
-    private javax.swing.JLabel LabelRegresa;
     private javax.swing.JPanel OpcionesPanel3;
     private javax.swing.JLabel PDFLabel;
     private javax.swing.JPanel PanelCerrar;
-    private javax.swing.JPanel PanelRegresa;
     private javax.swing.JLabel RegistrarLabel;
     private javax.swing.JLabel ResumenLabel;
     private javax.swing.JLabel TituloLabel;

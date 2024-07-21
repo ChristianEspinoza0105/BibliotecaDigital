@@ -43,6 +43,7 @@ public class InicioFrame extends javax.swing.JFrame {
         OpcionesPanel = new javax.swing.JPanel();
         PanelCerrar = new javax.swing.JPanel();
         LabelCerrar = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -65,6 +66,7 @@ public class InicioFrame extends javax.swing.JFrame {
         jtfContrasena.setText("Escribir su contraseña...");
         jtfContrasena.setToolTipText("");
         jtfContrasena.setBorder(null);
+        jtfContrasena.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jtfContrasena.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jtfContrasenaMousePressed(evt);
@@ -90,6 +92,7 @@ public class InicioFrame extends javax.swing.JFrame {
         jtfUsuario.setText("Escribir su nombre de usuario...");
         jtfUsuario.setToolTipText("");
         jtfUsuario.setBorder(null);
+        jtfUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jtfUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jtfUsuarioMousePressed(evt);
@@ -105,6 +108,7 @@ public class InicioFrame extends javax.swing.JFrame {
         jbRegistrarse.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
         jbRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
         jbRegistrarse.setText("Registrarse");
+        jbRegistrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbRegistrarse.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jbRegistrarseMouseEntered(evt);
@@ -119,10 +123,11 @@ public class InicioFrame extends javax.swing.JFrame {
             }
         });
 
-        jbIniciar.setBackground(new java.awt.Color(146, 144, 195));
+        jbIniciar.setBackground(new java.awt.Color(27, 26, 85));
         jbIniciar.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
         jbIniciar.setForeground(new java.awt.Color(255, 255, 255));
         jbIniciar.setText("Iniciar");
+        jbIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbIniciar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jbIniciarMouseEntered(evt);
@@ -202,12 +207,24 @@ public class InicioFrame extends javax.swing.JFrame {
         BibliotecaDigital2.setForeground(new java.awt.Color(7, 15, 43));
         BibliotecaDigital2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon2_icon.png"))); // NOI18N
         BibliotecaDigital2.setText("Biblioteca Digital");
-        background.add(BibliotecaDigital2, new org.netbeans.lib.awtextra.AbsoluteConstraints(906, 20, 410, 60));
+        background.add(BibliotecaDigital2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 410, 60));
 
-        jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Roboto Thin", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("¡Estás a solo un paso de descubrir un mundo de libros a tu alcance! Crea tu cuenta y comienza a explorar nuestra biblioteca digital hoy mismo.");
-        background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 800, -1, 30));
+        jLabel1.setText("¿Necesitas ayuda? ¡Estamos aquí para ti! Haz clic aquí para obtener asistencia inmediata.  ");
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel1MouseExited(evt);
+            }
+        });
+        background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 830, -1, 40));
 
         RegistrarsePanel.setBackground(new java.awt.Color(7, 15, 43));
 
@@ -222,7 +239,7 @@ public class InicioFrame extends javax.swing.JFrame {
             .addGap(0, 10, Short.MAX_VALUE)
         );
 
-        background.add(RegistrarsePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 840, 1210, 10));
+        background.add(RegistrarsePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 820, 1210, 10));
 
         OpcionesPanel.setBackground(new java.awt.Color(255, 255, 255));
         OpcionesPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -272,8 +289,8 @@ public class InicioFrame extends javax.swing.JFrame {
         PanelCerrarLayout.setHorizontalGroup(
             PanelCerrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelCerrarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(LabelCerrar, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(LabelCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         PanelCerrarLayout.setVerticalGroup(
@@ -288,9 +305,9 @@ public class InicioFrame extends javax.swing.JFrame {
         OpcionesPanel.setLayout(OpcionesPanelLayout);
         OpcionesPanelLayout.setHorizontalGroup(
             OpcionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(OpcionesPanelLayout.createSequentialGroup()
-                .addComponent(PanelCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1286, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OpcionesPanelLayout.createSequentialGroup()
+                .addGap(0, 1295, Short.MAX_VALUE)
+                .addComponent(PanelCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         OpcionesPanelLayout.setVerticalGroup(
             OpcionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -300,6 +317,11 @@ public class InicioFrame extends javax.swing.JFrame {
         );
 
         background.add(OpcionesPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1340, 40));
+
+        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("¡Estás a solo un paso de descubrir un mundo de libros a tu alcance! Crea tu cuenta y comienza a explorar nuestra biblioteca digital hoy mismo.");
+        background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 780, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -384,11 +406,11 @@ public class InicioFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_OpcionesPanelMousePressed
 
     private void jbIniciarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbIniciarMouseEntered
-        jbIniciar.setBackground(new Color(27, 26, 85));
+        jbIniciar.setBackground(new Color(83, 92, 145));
     }//GEN-LAST:event_jbIniciarMouseEntered
 
     private void jbIniciarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbIniciarMouseExited
-        jbIniciar.setBackground(new Color(146, 144, 195));
+        jbIniciar.setBackground(new Color(27, 26, 85));
     }//GEN-LAST:event_jbIniciarMouseExited
 
     private void jbRegistrarseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbRegistrarseMouseEntered
@@ -422,6 +444,18 @@ public class InicioFrame extends javax.swing.JFrame {
             jtfUsuario.setForeground(Color.gray);
         }
     }//GEN-LAST:event_jtfContrasenaMousePressed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
+            jLabel1.setForeground(Color.blue);
+    }//GEN-LAST:event_jLabel1MouseEntered
+
+    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
+            jLabel1.setForeground(Color.black);
+    }//GEN-LAST:event_jLabel1MouseExited
 
 
     private void jbRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {
@@ -512,6 +546,7 @@ public class InicioFrame extends javax.swing.JFrame {
     private javax.swing.JPanel background3;
     private javax.swing.JPanel background4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbIniciar;
     private javax.swing.JButton jbRegistrarse;

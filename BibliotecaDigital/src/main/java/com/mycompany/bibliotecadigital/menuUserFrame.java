@@ -1,6 +1,5 @@
 package com.mycompany.bibliotecadigital;
 
-import dao.DatabaseManager;
 import dao.LibroDAO;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -15,8 +14,6 @@ public class menuUserFrame extends javax.swing.JFrame {
     
     private JPanel panelLibros;
     private LibroDAO libroDAO;
-    private int userId;
-    private DatabaseManager dbManager;
     int xMouse, yMouse;
 
     public menuUserFrame() {
@@ -141,7 +138,7 @@ public class menuUserFrame extends javax.swing.JFrame {
                 jbBuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 40, 40));
+        jPanel1.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 10, 40, 40));
 
         jtfBuscar.setBackground(new java.awt.Color(255, 255, 255));
         jtfBuscar.setFont(new java.awt.Font("Roboto Light", 0, 18)); // NOI18N
@@ -158,7 +155,7 @@ public class menuUserFrame extends javax.swing.JFrame {
                 jtfBuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(jtfBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 210, 40));
+        jPanel1.add(jtfBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 620, 40));
 
         BibliotecaDigital2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         BibliotecaDigital2.setForeground(new java.awt.Color(255, 255, 255));
@@ -170,7 +167,7 @@ public class menuUserFrame extends javax.swing.JFrame {
                 BibliotecaDigital2MouseClicked(evt);
             }
         });
-        jPanel1.add(BibliotecaDigital2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 0, 230, 60));
+        jPanel1.add(BibliotecaDigital2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 230, 60));
 
         PanelCerrar.setBackground(new java.awt.Color(255, 255, 255));
         PanelCerrar.setPreferredSize(new java.awt.Dimension(54, 33));
@@ -220,7 +217,7 @@ public class menuUserFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(PanelCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 30));
+        jPanel1.add(PanelCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 0, 40, 30));
 
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1320, -1));
 

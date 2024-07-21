@@ -143,18 +143,16 @@ public class PDFPanelFrame extends javax.swing.JFrame {
         PalabraLabel = new javax.swing.JLabel();
         jtfBuscarPalabra = new javax.swing.JTextField();
         SeparatorPalabra = new javax.swing.JSeparator();
-        PaginaLabel = new javax.swing.JLabel();
         jtfBuscarPagina = new javax.swing.JTextField();
         SeparatorPagina = new javax.swing.JSeparator();
         jbBuscarPagina = new javax.swing.JButton();
         jbBuscarPalabra = new javax.swing.JButton();
         OpcionesPanel = new javax.swing.JPanel();
-        PanelRegresar = new javax.swing.JPanel();
-        LabelRegresar = new javax.swing.JLabel();
         PanelCerrar = new javax.swing.JPanel();
         LabelCerrar = new javax.swing.JLabel();
         jbMoverPalabraAtras = new javax.swing.JButton();
         jbMoverPalabraAdelante = new javax.swing.JButton();
+        PaginaLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -253,7 +251,7 @@ public class PDFPanelFrame extends javax.swing.JFrame {
                 BibliotecaDigitalMouseClicked(evt);
             }
         });
-        background.add(BibliotecaDigital, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 40, 310, 60));
+        background.add(BibliotecaDigital, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 50, 310, 60));
 
         PalabraLabel.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
         PalabraLabel.setForeground(new java.awt.Color(7, 15, 43));
@@ -281,11 +279,6 @@ public class PDFPanelFrame extends javax.swing.JFrame {
         SeparatorPalabra.setBackground(new java.awt.Color(0, 0, 0));
         SeparatorPalabra.setForeground(new java.awt.Color(7, 15, 43));
         background.add(SeparatorPalabra, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 250, 530, 10));
-
-        PaginaLabel.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
-        PaginaLabel.setForeground(new java.awt.Color(7, 15, 43));
-        PaginaLabel.setText("Buscar Página:");
-        background.add(PaginaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 270, 310, 50));
 
         jtfBuscarPagina.setBackground(new java.awt.Color(255, 255, 255));
         jtfBuscarPagina.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
@@ -359,55 +352,6 @@ public class PDFPanelFrame extends javax.swing.JFrame {
             }
         });
 
-        PanelRegresar.setBackground(new java.awt.Color(255, 255, 255));
-        PanelRegresar.setAlignmentY(0.4F);
-        PanelRegresar.setPreferredSize(new java.awt.Dimension(54, 33));
-        PanelRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PanelRegresarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                PanelRegresarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                PanelRegresarMouseExited(evt);
-            }
-        });
-
-        LabelRegresar.setFont(new java.awt.Font("Roboto Black", 0, 28)); // NOI18N
-        LabelRegresar.setForeground(new java.awt.Color(0, 0, 0));
-        LabelRegresar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LabelRegresar.setText("<");
-        LabelRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LabelRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LabelRegresarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                LabelRegresarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                LabelRegresarMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout PanelRegresarLayout = new javax.swing.GroupLayout(PanelRegresar);
-        PanelRegresar.setLayout(PanelRegresarLayout);
-        PanelRegresarLayout.setHorizontalGroup(
-            PanelRegresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelRegresarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(LabelRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        PanelRegresarLayout.setVerticalGroup(
-            PanelRegresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelRegresarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(LabelRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
-        );
-
         PanelCerrar.setBackground(new java.awt.Color(255, 255, 255));
         PanelCerrar.setPreferredSize(new java.awt.Dimension(54, 33));
         PanelCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -450,28 +394,24 @@ public class PDFPanelFrame extends javax.swing.JFrame {
         );
         PanelCerrarLayout.setVerticalGroup(
             PanelCerrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelCerrarLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelCerrarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(LabelCerrar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout OpcionesPanelLayout = new javax.swing.GroupLayout(OpcionesPanel);
         OpcionesPanel.setLayout(OpcionesPanelLayout);
         OpcionesPanelLayout.setHorizontalGroup(
             OpcionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(OpcionesPanelLayout.createSequentialGroup()
-                .addComponent(PanelCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PanelRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1226, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OpcionesPanelLayout.createSequentialGroup()
+                .addGap(0, 1286, Short.MAX_VALUE)
+                .addComponent(PanelCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         OpcionesPanelLayout.setVerticalGroup(
             OpcionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(OpcionesPanelLayout.createSequentialGroup()
-                .addGroup(OpcionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanelRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                    .addComponent(PanelCerrar, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
+                .addComponent(PanelCerrar, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -504,6 +444,11 @@ public class PDFPanelFrame extends javax.swing.JFrame {
             }
         });
         background.add(jbMoverPalabraAdelante, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 150, 30, 30));
+
+        PaginaLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
+        PaginaLabel1.setForeground(new java.awt.Color(7, 15, 43));
+        PaginaLabel1.setText("Buscar Página:");
+        background.add(PaginaLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 270, 310, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -647,34 +592,6 @@ public class PDFPanelFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jtfBuscarPaginaMousePressed
 
-    private void LabelRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelRegresarMouseClicked
-        this.dispose();
-    }//GEN-LAST:event_LabelRegresarMouseClicked
-
-    private void LabelRegresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelRegresarMouseEntered
-        PanelRegresar.setBackground(new Color(57, 153, 24));
-        LabelRegresar.setForeground(Color.white);
-    }//GEN-LAST:event_LabelRegresarMouseEntered
-
-    private void LabelRegresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelRegresarMouseExited
-        PanelRegresar.setBackground(Color.white);
-        LabelRegresar.setForeground(Color.black);
-    }//GEN-LAST:event_LabelRegresarMouseExited
-
-    private void PanelRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelRegresarMouseClicked
-        this.dispose();
-    }//GEN-LAST:event_PanelRegresarMouseClicked
-
-    private void PanelRegresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelRegresarMouseEntered
-        PanelRegresar.setBackground(new Color(57, 153, 24));
-        LabelRegresar.setForeground(Color.white);
-    }//GEN-LAST:event_PanelRegresarMouseEntered
-
-    private void PanelRegresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelRegresarMouseExited
-        PanelRegresar.setBackground(Color.white);
-        LabelRegresar.setForeground(Color.black);
-    }//GEN-LAST:event_PanelRegresarMouseExited
-
     private void BibliotecaDigitalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BibliotecaDigitalMouseClicked
         this.dispose();
         menuAdminFrame adminFrame = new menuAdminFrame();
@@ -703,12 +620,10 @@ public class PDFPanelFrame extends javax.swing.JFrame {
     private javax.swing.JLabel BibliotecaDigital;
     private javax.swing.JPanel JPPDF;
     private javax.swing.JLabel LabelCerrar;
-    private javax.swing.JLabel LabelRegresar;
     private javax.swing.JPanel OpcionesPanel;
-    private javax.swing.JLabel PaginaLabel;
+    private javax.swing.JLabel PaginaLabel1;
     private javax.swing.JLabel PalabraLabel;
     private javax.swing.JPanel PanelCerrar;
-    private javax.swing.JPanel PanelRegresar;
     private javax.swing.JSeparator SeparatorPagina;
     private javax.swing.JSeparator SeparatorPalabra;
     private javax.swing.JPanel background;
