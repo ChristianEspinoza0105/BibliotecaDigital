@@ -38,7 +38,7 @@ public class DatabaseManager {
             System.out.println("Error al agregar el usuario: " + e.getMessage());
         }
     }
-    
+
     public boolean verificarCredenciales(String username, String password) {
         String sql = "SELECT COUNT(*) FROM users WHERE username = ? AND password = ?";
 
@@ -54,7 +54,7 @@ public class DatabaseManager {
         }
         return false;
     }
-    
+
     public boolean verificarCredencialesAdmin(String username, String password) {
         String sql = "SELECT COUNT(*) FROM admin WHERE username = ? AND password = ?";
 
@@ -67,6 +67,20 @@ public class DatabaseManager {
             }
         } catch (SQLException e) {
             System.out.println("Error al verificar las credenciales del administrador: " + e.getMessage());
+        }
+        return false;
+    }
+    
+    public boolean usuarioExiste(String username) {
+        String sql = "SELECT COUNT(*) FROM users WHERE username = ?";
+        try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, username);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next() && rs.getInt(1) > 0) {
+                return true;
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al verificar la existencia del usuario: " + e.getMessage());
         }
         return false;
     }
