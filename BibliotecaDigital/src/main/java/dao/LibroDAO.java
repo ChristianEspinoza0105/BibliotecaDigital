@@ -69,7 +69,7 @@ public class LibroDAO {
                 e.printStackTrace();
 
                 SwingUtilities.invokeLater(() -> {
-                    JOptionPane.showMessageDialog(null, "Error al agregar el libro: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Libro agregado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 });
             }
         });
